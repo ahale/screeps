@@ -20,6 +20,7 @@ module.exports = {
                 if(creep.pos.x != creep.memory._move.dest.x || creep.pos.y != creep.memory._move.dest.y) {
                    var moving = creep.memory.work.move += 1
                    creep.memory.work.move = moving;
+               }
             }
         }
 
