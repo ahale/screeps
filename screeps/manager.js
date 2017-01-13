@@ -17,17 +17,17 @@ module.exports = {
             if(!Game.rooms[name].memory.roominit) {
                 this.roominit(name);
             }
-            this.runroom(name);
+            this.run_room(name);
         }
-        this.runcreeps();
+        this.run_creeps();
     },
 
-    runroom: function(name) {
+    run_room: function(name) {
         console.log('processing room: '+name);
         factory.run(name);
-    }
+    },
 
-    runcreeps: function() {
+    run_creeps: function() {
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
             basecreep.run(creep);
