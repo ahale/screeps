@@ -1,3 +1,4 @@
+
 module.exports = {
     init: function()  {
         console.log('todo: write general manager memory stuff');

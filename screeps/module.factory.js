@@ -1,3 +1,4 @@
+
 module.exports = {
     init: function(name) {
         if(!Game.rooms[name].memory.factoryInit) {

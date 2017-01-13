@@ -1,3 +1,4 @@
+
 var manager = require('module.manager');
 manager.init();
 

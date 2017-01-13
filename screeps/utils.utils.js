@@ -1,3 +1,4 @@
+
 module.exports = {
     checkArea: function() {
         console.log('todo: checkArea function');
@@ -19,7 +20,7 @@ module.exports = {
         var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_CONTAINER);
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
     },
-    
+
     roominit: function(name) {
         if(Game.rooms[name].memory.energyavailable == undefined) {
             Game.rooms[name].memory.energyavailable = 1;
