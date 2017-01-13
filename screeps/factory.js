@@ -11,10 +11,10 @@ module.exports = {
 
     build: function(meta) {
         console.log('todo: write factory build function');
-    }
+    },
 
     memoryInit: function(name) {
         console.log('todo: write make factory queues');
         // make queues
-    }
+    },
 }
