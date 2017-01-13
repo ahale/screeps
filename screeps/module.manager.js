@@ -38,7 +38,7 @@ module.exports = {
     run_creeps: function() {
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
-            // basecreep.run(creep);
+            basecreep.run(creep);
         }
     },
 }
