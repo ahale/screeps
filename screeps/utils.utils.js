@@ -79,7 +79,7 @@ module.exports = {
 
     controller_level_change: function() {
         console.log('roomlevel changed from'+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
-        Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level);
+        Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
     }
 
     checkarea: function(_pos, distance, direction, type) {
