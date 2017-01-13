@@ -78,7 +78,7 @@ module.exports = {
     },
 
     controller_level_change: function(name) {
-        console.log('roomlevel changed from'+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
+        console.log('roomlevel changed from '+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
         Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
     },
 
