@@ -11,6 +11,7 @@ module.exports = {
             console.log(creep.memory.role" "+creep.name+" about to die");
             return;
         }
+
         if(creep.memory.src == undefined) {
             creep.memory.src = 0;
         }
