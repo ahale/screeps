@@ -25,7 +25,7 @@ module.exports = {
         // check if i have claimed room
 
         if(Game.rooms[name].controller) {
-            Game.rooms[name].memory = Game.rooms[name].controller.level;
+            Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
         }
 
         if(Game.rooms[name].memory.queues == undefined) {
