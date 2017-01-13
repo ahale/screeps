@@ -1,9 +1,6 @@
 
 module.exports = {
     run: function(creep) {
-        console.log('todo: '+creep.memory.role+' specific stuff');
-    }
-    run: function(creep) {
         if(!creep.memory.init) { this.memory_init(creep); }
         if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
         if(creep.room.memory.mode == "miner") { this.miner(creep); };
