@@ -4,7 +4,7 @@ module.exports = {
         console.log('todo: '+creep.memory.role+' specific stuff');
         var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
-        var res = eval('this.'+source_mode)(creep);
+        eval('this.'+source_mode)(creep);
     },
 
     setup: function(creep) {
