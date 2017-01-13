@@ -9,7 +9,8 @@ module.exports = {
             this.setup(creep);
         }
         else {
-            eval('this.'+source_mode)(creep);
+            console.log('this.'+source_mode);
+            // eval('this.'+source_mode)(creep);
         }
     },
 
