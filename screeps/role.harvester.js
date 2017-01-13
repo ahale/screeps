@@ -2,6 +2,7 @@
 module.exports = {
     run: function(creep) {
         console.log('todo: '+creep.memory.role+' specific stuff');
+        console.log(creep.room.memory.mode);
         var room_mode = creep.room.memory.mode;
         var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
