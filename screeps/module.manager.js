@@ -2,7 +2,7 @@
 var mem = require('utils.mem');
 var utils = require('utils.utils');
 var factory = require('module.factory');
-var basecreep = require('role.base');
+// var basecreep = require('role.base');
 
 module.exports = {
     init: function() {
@@ -38,7 +38,7 @@ module.exports = {
     run_creeps: function() {
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
-            basecreep.run(creep);
+            // basecreep.run(creep);
         }
     },
 }

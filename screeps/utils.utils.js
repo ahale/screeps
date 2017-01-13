@@ -27,7 +27,7 @@ module.exports = {
         if(Game.rooms[name].controller) {
             Game.rooms[name].memory = Game.rooms[name].controller.level;
         }
-        
+
         if(Game.rooms[name].memory.queues == undefined) {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
@@ -64,7 +64,6 @@ module.exports = {
         else {
             Game.rooms[name].memory.sources = [];
         }
-        console.log('todo: write room construction sites');
 
         var source = Game.getObjectById(Game.rooms[name].memory.sources[0].id);
         var container_pos = new RoomPosition(Game.spawns.Spawn1.pos.x, (Game.spawns.Spawn1.pos.y - 3), name)
