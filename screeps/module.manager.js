@@ -11,6 +11,10 @@ module.exports = {
         }
         mem.init();
         Memory.mainManagerInit = true;
+        for(var name in Game.rooms) {
+            // limit to just one active room by only initialising at start
+            Game.rooms[name].memory.active = true;
+        }
     },
 
     run: function() {
@@ -18,7 +22,9 @@ module.exports = {
             if(!Game.rooms[name].memory.roominit) {
                 utils.roominit(name);
             }
-            this.run_room(name);
+            if(Game.rooms[name].memory.active) {
+                this.run_room(name);
+            }
         }
         this.run_creeps();
     },
