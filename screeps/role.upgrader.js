@@ -44,6 +44,10 @@ module.exports = {
                 }
             }
         }
+        if(!creep.room.controller) {
+            creep.moveTo(Game.spawns.Spawn1.pos);
+            creep.memory.work.wait += 1;
+        }
         // else {
         //     creep.moveTo(Game.spawns.Spawn1.pos);
         //     creep.memory.work.wait += 1;
