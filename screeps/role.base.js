@@ -11,10 +11,16 @@ module.exports = {
             console.log(creep.memory.role+" "+creep.name+" about to die");
             return;
         }
-
         if(creep.memory.src == undefined) {
             creep.memory.src = 0;
         }
-        var res = eval(creep.memory.role+'.run')(creep);
+        if(creep.memory.role == "harvester") { harvester.run(creep); };
+
+        // var res = harvester.run(creep);
+        // var cmd = ;
+        // var func = new Function('return harvester;');
+        // x = new func()
+        // console.log(x);
+        // x.run(creep);
     }
 }
