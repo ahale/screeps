@@ -38,10 +38,12 @@ module.exports = {
                 if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(src);
                     creep.memory.work.move += 1;
-                } else {
+                }
+                else {
                     creep.memory.work.harvest += 1;
                 }
             }
+        }
         else {
             creep.moveTo(Game.spawns.Spawn1.pos);
             creep.memory.work.wait += 1;
