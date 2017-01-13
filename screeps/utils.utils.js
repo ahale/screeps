@@ -55,7 +55,7 @@ module.exports = {
                 data.accesspoints = nearby;
                 room_source_data.push(data);
             }
-            console.log('todo: write room source info');
+            Memory.rooms[name].sources = room_source_data;
         }
         else {
             Game.rooms[name].memory.sources = [];
