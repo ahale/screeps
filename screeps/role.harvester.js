@@ -14,7 +14,6 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        // console.log('todo: harvester in harvest mode');
         if(creep.carry.energy < creep.carryCapacity) {
             var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
             if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
