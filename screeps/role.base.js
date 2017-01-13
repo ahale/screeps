@@ -1,6 +1,6 @@
 var miner = require('role.miner');
 var builder = require('role.builder');
-// var upgrader = require('role.upgrader');
+var upgrader = require('role.upgrader');
 var harvester = require('role.harvester');
 var transporter = require('role.transporter');
 
