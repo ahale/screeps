@@ -16,7 +16,7 @@ module.exports = {
 
         if(creep.memory.role == "miner") { miner.run(creep); };
         if(creep.memory.role == "builder") { builder.run(creep); };
-        // if(creep.memory.role == "upgrader") { upgrader.run(creep); };
+        if(creep.memory.role == "upgrader") { upgrader.run(creep); };
         if(creep.memory.role == "harvester") { harvester.run(creep); };
         if(creep.memory.role == "transporter") { transporter.run(creep); };
 
