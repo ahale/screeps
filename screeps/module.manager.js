@@ -31,7 +31,10 @@ module.exports = {
     },
 
     run_room: function(name) {
-        // console.log('processing room: '+name);
+        if(Game.rooms[name].memory.controller_level != Game.rooms[name].controller.level) {
+            console.log('wtf');
+            utils.controller_level_change();
+        }
         factory.run(name);
         this.stupid_stuff_to_get_creeps()
     },
@@ -47,14 +50,14 @@ module.exports = {
         var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == 'harvester'));
         var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == 'upgrader'));
         if(!harvesters.length) {
-            var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+            var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester", "generic": true});
             if(_.isString(newName)) {
                 console.log('building harvester '+newName)
                 Game.spawns['Spawn1'].memory.building = "harvester";
             }
         } else {
             if(!upgraders.length) {
-                var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "upgrader"});
+                var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "upgrader", "generic": true});
                 if(_.isString(newName)) {
                     console.log('building upgrader '+newName)
                     Game.spawns['Spawn1'].memory.building = "upgrader";
