@@ -16,7 +16,7 @@ module.exports = {
     run: function() {
         for(var name in Game.rooms) {
             if(!Game.rooms[name].memory.roominit) {
-                this.roominit(name);
+                utils.roominit(name);
             }
             this.run_room(name);
         }
@@ -34,9 +34,4 @@ module.exports = {
             basecreep.run(creep);
         }
     },
-
-    roominit: function(name) {
-        utils.roominit(name);
-        factory.init(name);
-    }
 }
