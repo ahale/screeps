@@ -16,10 +16,9 @@ module.exports = {
             if(!Game.rooms[name].memory.roominit) {
                 utils.roominit(name);
             }
-            // limit to just one active room by only initialising at start
-            Memory.rooms[name].active = true;
             Memory.rooms.homeroom = name;
         }
+        Memory.rooms[Memory.rooms.homeroom].active = true;
     },
 
     run: function() {
