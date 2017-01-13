@@ -8,14 +8,14 @@ module.exports = {
     },
 
     setup: function(creep) {
-        console.log('todo: ');
+        console.log('todo: harvester in initial setup mode');
     },
 
     miner: function(creep) {
-        console.log('todo: ');
+        console.log('todo: harvester in miner mode');
     },
 
     delivery: function(creep) {
-        console.log('todo: ');
+        console.log('todo: harvester in full delivery mode');
     },
 }
