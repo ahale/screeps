@@ -17,6 +17,7 @@ module.exports = {
 
     harvest: function(creep) {
         // if(creep.room.controller) {
+        creep.say('whassup');
             if(creep.memory.upgrading && creep.carry.energy == 0) {
                 creep.memory.upgrading = false;
             }
