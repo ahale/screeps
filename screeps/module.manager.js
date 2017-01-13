@@ -2,7 +2,7 @@
 var mem = require('utils.mem');
 var utils = require('utils.utils');
 var factory = require('module.factory');
-var basecreep = require('role.base');
+// var basecreep = require('role.base');
 
 module.exports = {
     init: function() {
