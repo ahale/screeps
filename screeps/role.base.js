@@ -13,16 +13,17 @@ module.exports = {
             return;
         }
 
-        // var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == 'harvester'));
-        // var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == 'upgrader'));
-        // if(!harvesters.length) {
-        //     Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
-        // }
-        // if(!upgraders.length) {
-        //     Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "upgrader"});
-        // }
+        var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == 'harvester'));
+        var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == 'upgrader'));
+        if(!harvesters.length) {
+            Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+        }
+        if(!upgraders.length) {
+            Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "upgrader"});
+        }
+        
         if(creep.memory.src == undefined) { creep.memory.src = 0; }
-        if(creep.memory.room) == undefined { creep.memory.room = creep.room.name; }
+        if(creep.memory.room == undefined) { creep.memory.room = creep.room.name; }
         if(creep.memory.work == undefined) { creep.memory.work = {"work": 0, "wait": 0, "move": 0, "harvest": 0}; }
 
         if(creep.memory.role == "miner") { miner.run(creep); };
