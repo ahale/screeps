@@ -24,7 +24,7 @@ module.exports = {
         if(creep.memory.src == undefined) { creep.memory.src = 0; }
         if(creep.memory.room == undefined) { creep.memory.room = Memory.rooms.homeroom; }
         if(creep.memory.work == undefined) { creep.memory.work = {"work": 0, "wait": 0, "move": 0, "harvest": 0}; }
-        creep.memory.init = true;
+        creep.memory.init = false;
 
     }
 }

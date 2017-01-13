@@ -7,6 +7,7 @@ module.exports = {
         // var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
         // console.log("creep.room.memory.mode: "+creep.room.memory.mode);
+        if(!creep.memory.init) { this.memory_init(creep); }
         if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
         if(creep.room.memory.mode == "miner") { this.miner(creep); };
         if(creep.room.memory.mode == "container") { this.container(creep); };
@@ -58,4 +59,8 @@ module.exports = {
     delivery: function(creep) {
         console.log('todo: harvester in full delivery mode');
     },
+
+    memory_init: function(creep) {
+        creep.memory.init = true;
+    }
 }
