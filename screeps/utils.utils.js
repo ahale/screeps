@@ -22,6 +22,12 @@ module.exports = {
     },
 
     roominit: function(name) {
+        if(Game.rooms[name].queues == undefined) {
+            Game.rooms[name].queues = {};
+            Game.rooms[name].memory.queues.spawnqueue = [];
+            Game.rooms[name].memory.queues.priorityspawnqueue = [];
+        }
+
         if(Game.rooms[name].memory.energyavailable == undefined) {
             Game.rooms[name].memory.energyavailable = 1;
             console.log('todo: check for energy sources');
