@@ -18,7 +18,8 @@ module.exports = {
         if(creep.memory._move) {
             if((creep.pos.roomname == creep.memory._move.dest.room) &&
                ((creep.pos.x != creep.memory._move.dest.x) || (creep.pos.y != creep.memory._move.dest.y))) {
-                   creep.memory.work.move += 1;
+                   var moving = creep.memory.work.move += 1
+                   creep.memory.work.move = moving;
             }
         }
 
