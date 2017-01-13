@@ -15,7 +15,7 @@ module.exports = {
             console.log('room: '+name);
             // limit to just one active room by only initialising at start
             Game.rooms[name].memory.active = true;
-            Game.rooms.memory.homeroom = name;
+            Game.memory.rooms.homeroom = name;
         }
     },
 
@@ -28,9 +28,6 @@ module.exports = {
                 this.run_room(name);
             }
         }
-
-
-
         this.run_creeps();
     },
 
