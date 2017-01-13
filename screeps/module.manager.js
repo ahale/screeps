@@ -13,17 +13,17 @@ module.exports = {
         Memory.mainManagerInit = true;
         for(var name in Game.rooms) {
             console.log('room: '+name);
+            if(!Game.rooms[name].memory.roominit) {
+                utils.roominit(name);
+            }
             // limit to just one active room by only initialising at start
-            // Memory.rooms[name].active = true;
+            Memory.rooms[name].active = true;
             Memory.rooms.homeroom = name;
         }
     },
 
     run: function() {
         for(var name in Game.rooms) {
-            if(!Game.rooms[name].memory.roominit) {
-                utils.roominit(name);
-            }
             if(Game.rooms[name].memory.active) {
                 this.run_room(name);
             }
