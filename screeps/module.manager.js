@@ -14,8 +14,8 @@ module.exports = {
         for(var name in Game.rooms) {
             console.log('room: '+name);
             // limit to just one active room by only initialising at start
-            Game.rooms[name].memory.active = true;
-            Game.memory.rooms.homeroom = name;
+            Memory.rooms[name].active = true;
+            Memory.rooms.homeroom = name;
         }
     },
 
