@@ -7,7 +7,13 @@ var transporter = require('role.transporter');
 module.exports = {
     run: function(creep) {
         console.log('todo: write generic creep stuff');
-        var role = creep.memory.role;
+        if(creep.ticksToLive == 1) {
+            console.log(creep.memory.role" "+creep.name+" about to die");
+            return;
+        }
+        if(creep.memory.src == undefined) {
+            creep.memory.src = 0;
+        }
         var res = eval(creep.memory.role+'.run')(creep);
     }
 }

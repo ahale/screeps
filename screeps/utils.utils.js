@@ -24,6 +24,10 @@ module.exports = {
     roominit: function(name) {
         // check if i have claimed room
 
+        if(Game.rooms[name].controller) {
+            Game.rooms[name].memory = Game.rooms[name].controller.level;
+        }
+        
         if(Game.rooms[name].memory.queues == undefined) {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
