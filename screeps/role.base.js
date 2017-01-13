@@ -15,8 +15,8 @@ module.exports = {
         if(creep.memory.work == undefined) { creep.memory.work = {"work": 0, "wait": 0, "move": 0, "harvest": 0}; }
 
         // new RoomPosition(Game.spawns.Spawn1.pos.x, (Game.spawns.Spawn1.pos.y - 3), name)
-        if((creep.pos.roomname == creep.memory._dest.room) &&
-           ((creep.pos.x != creep.memory._dest.x) || (creep.pos.y != creep.memory._dest.y))) {
+        if((creep.pos.roomname == creep.memory._move.dest.room) &&
+           ((creep.pos.x != creep.memory._move.dest.x) || (creep.pos.y != creep.memory._move.dest.y))) {
                creep.memory.work.move += 1;
            }
 
