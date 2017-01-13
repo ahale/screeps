@@ -17,7 +17,7 @@ module.exports = {
         // new RoomPosition(Game.spawns.Spawn1.pos.x, (Game.spawns.Spawn1.pos.y - 3), name)
         if(creep.memory._move) {
             if(creep.pos.roomname == creep.memory._move.dest.room) {
-                if(creep.pos.x != creep.memory._move.dest.x) || (creep.pos.y != creep.memory._move.dest.y) {
+                if(creep.pos.x != creep.memory._move.dest.x || creep.pos.y != creep.memory._move.dest.y) {
                    var moving = creep.memory.work.move += 1
                    creep.memory.work.move = moving;
             }
