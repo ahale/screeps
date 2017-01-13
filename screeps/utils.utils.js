@@ -22,8 +22,8 @@ module.exports = {
     },
 
     roominit: function(name) {
-        if(Game.rooms[name].queues == undefined) {
-            Game.rooms[name].queues = {};
+        if(Game.rooms[name].memory.queues == undefined) {
+            Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
             Game.rooms[name].memory.queues['priorityspawnqueue'] = [];
         }
