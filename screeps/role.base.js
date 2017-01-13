@@ -9,7 +9,7 @@ module.exports = {
         // console.log('todo: write generic creep stuff');
         if(creep.ticksToLive == 1) {
             console.log(creep.memory.role+" "+creep.name+" about to die: " creep.memory.work);
-            console.log(creep.memory.role+" "+creep.name+' stats: worked: '+creep.memory.work.work+', moved: '+creep.memory.work.move+', harvest: '+creep.memory.work.harvest+', wait: 'creep.memory.work.wait)
+            console.log(creep.memory.role+" "+creep.name+' stats: worked: '+creep.memory.work.work+', moved: '+creep.memory.work.move+', harvest: '+creep.memory.work.harvest+', wait: '+creep.memory.work.wait);
             return;
         }
         if(creep.memory.src == undefined) { creep.memory.src = 0; }
