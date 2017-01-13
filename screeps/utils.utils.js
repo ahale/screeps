@@ -44,7 +44,7 @@ module.exports = {
             var room_source_data = [];
             var energy_sources = Game.rooms[name].find(FIND_SOURCES);
             for(var n in energy_sources) {
-                var path = Game.rooms[name].findPath(Game.spawns.Spawn1.pos, sources[n].pos, { ignoreCreeps: true });
+                var path = Game.rooms[name].findPath(Game.spawns.Spawn1.pos, energy_sources[n].pos, { ignoreCreeps: true });
                 var data = {};
                 var nearby = this.checkarea(sources[n].pos, 1, "AROUND", "accessable");
                 var inaccessable_count = 9 - nearby;
