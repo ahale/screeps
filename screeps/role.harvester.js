@@ -18,6 +18,7 @@ module.exports = {
             var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
             if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(src);
+                creep.memory.work.move += 1;
             } else {
                 creep.memory.work.harvest += 1;
             }
@@ -33,10 +34,15 @@ module.exports = {
             if(targets.length > 0) {
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
+                    creep.memory.work.move += 1;
+                }
+                else {
+                    creep.memory.work.work += 1;
                 }
             }
             if(targets.length == 0) {
                 creep.moveTo(Game.spawns.Spawn1.pos);
+                creep.memory.work.wait += 1;
             }
         }
     },
