@@ -18,6 +18,8 @@ module.exports = {
             var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
             if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(src);
+            } else {
+                creep.memory.work.harvest += 1;
             }
         }
         else {
