@@ -41,6 +41,7 @@ module.exports = {
                     creep.memory.work.move += 1;
                 }
                 else {
+                    creep.moveTo(src);
                     creep.memory.work.harvest += 1;
                 }
             }
