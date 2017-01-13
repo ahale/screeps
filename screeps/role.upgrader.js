@@ -16,7 +16,7 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        if(creep.room.controller) {
+        // if(creep.room.controller) {
             if(creep.memory.upgrading && creep.carry.energy == 0) {
                 creep.memory.upgrading = false;
             }
@@ -43,7 +43,7 @@ module.exports = {
                     creep.memory.work.harvest += 1;
                 }
             }
-        }
+        // }
         if(!creep.room.controller) {
             creep.moveTo(Game.spawns.Spawn1.pos);
             creep.memory.work.wait += 1;
