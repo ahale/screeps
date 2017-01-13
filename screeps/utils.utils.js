@@ -13,11 +13,11 @@ module.exports = {
 	},
 
     buildContainers: function(pos, name) {
-        // creates three containers in row above provided pos
+        // creates two containers in row above provided pos
         var x = pos.x;
         var y = pos.y;
         var res = Game.rooms[name].createConstructionSite((x-1), (y-1), STRUCTURE_CONTAINER);
-        var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_CONTAINER);
+        // var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_CONTAINER);
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
     },
 
