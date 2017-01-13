@@ -7,10 +7,10 @@ module.exports = {
         // var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
         // console.log("creep.room.memory.mode: "+creep.room.memory.mode);
-        if(creep.room.memory.mode == "harvest") { console.log('creep: '+creep.name); this.harvest(creep); };
-        if(creep.room.memory.mode == "miner") { console.log('creep: '+creep.name); this.miner(creep); };
-        if(creep.room.memory.mode == "container") { console.log('creep: '+creep.name); this.container(creep); };
-        if(creep.room.memory.mode == "delivery") { console.log('creep: '+creep.name); this.delivery(creep); };
+        if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
+        if(creep.room.memory.mode == "miner") { this.miner(creep); };
+        if(creep.room.memory.mode == "container") { this.container(creep); };
+        if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
     },
 
     harvest: function(creep) {
