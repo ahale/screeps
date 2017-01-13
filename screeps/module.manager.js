@@ -33,7 +33,7 @@ module.exports = {
     run_room: function(name) {
         if(Game.rooms[name].memory.controller_level != Game.rooms[name].controller.level) {
             // console.log('wtf');
-            utils.controller_level_change();
+            utils.controller_level_change(name);
         }
         factory.run(name);
         this.stupid_stuff_to_get_creeps()
