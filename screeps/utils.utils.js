@@ -22,10 +22,16 @@ module.exports = {
     },
 
     roominit: function(name) {
+        // check if i have claimed room
+
         if(Game.rooms[name].memory.queues == undefined) {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
             Game.rooms[name].memory.queues['priorityspawnqueue'] = [];
+        }
+
+        if(Game.rooms[name].memory.mode == undefined) {
+            Game.rooms[name].memory.mode = 'harvest';
         }
 
         if(Game.rooms[name].memory.energyavailable == undefined) {
@@ -40,8 +46,10 @@ module.exports = {
         else {
             Game.rooms[name].memory.sources = [];
         }
-        // check if i have claimed room
         console.log('todo: write room construction sites');
+
+        // var container_pos =
+        // this.buildContainers(name);
         Game.rooms[name].memory.roominit = true;
     },
 }

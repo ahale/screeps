@@ -24,7 +24,7 @@ module.exports = {
     },
 
     run_room: function(name) {
-        console.log('processing room: '+name);
+        // console.log('processing room: '+name);
         factory.run(name);
     },
 
