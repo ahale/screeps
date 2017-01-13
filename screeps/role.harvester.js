@@ -1,3 +1,4 @@
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
 
 module.exports = {
     run: function(creep) {
@@ -5,6 +6,7 @@ module.exports = {
         // console.log('todo: '+creep.memory.role+' specific stuff');
         var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
+        console.log("creep.room.memory.mode: "+creep.room.memory.mode);
         if(creep.room.memory.mode == "harvest") { console.log('creep: '+creep.name); this.harvest(creep); };
         if(creep.room.memory.mode == "miner") { console.log('creep: '+creep.name); this.miner(creep); };
         if(creep.room.memory.mode == "container") { console.log('creep: '+creep.name); this.container(creep); };
