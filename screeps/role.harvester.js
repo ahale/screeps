@@ -8,14 +8,14 @@ module.exports = {
     },
 
     setup: function(creep) {
-
+        console.log('todo: ');
     },
 
     miner: function(creep) {
-
+        console.log('todo: ');
     },
 
     delivery: function(creep) {
-
+        console.log('todo: ');
     },
 }
