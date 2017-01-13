@@ -2,7 +2,7 @@
 module.exports = {
     run: function(creep) {
         // return;
-        console.log('todo: '+creep.memory.role+' specific stuff');
+        // console.log('todo: '+creep.memory.role+' specific stuff');
         var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
         if(creep.room.memory.mode == "harvest") { console.log('creep: '+creep.name); this.harvest(creep); };
@@ -12,10 +12,11 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        console.log('todo: harvester in harvest mode');
+        // console.log('todo: harvester in harvest mode');
         if(creep.carry.energy < creep.carryCapacity) {
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0]);
+            var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
+            if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(src);
             }
         }
         else {

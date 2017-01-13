@@ -6,7 +6,7 @@ var transporter = require('role.transporter');
 
 module.exports = {
     run: function(creep) {
-        console.log('todo: write generic creep stuff');
+        // console.log('todo: write generic creep stuff');
         if(creep.ticksToLive == 1) {
             console.log(creep.memory.role+" "+creep.name+" about to die");
             return;
