@@ -17,7 +17,7 @@ module.exports = {
         var x = pos.x;
         var y = pos.y;
         var res = Game.rooms[name].createConstructionSite((x-1), (y-1), STRUCTURE_CONTAINER);
-        // var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_CONTAINER);
+        var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_ROAD);
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
     },
 
