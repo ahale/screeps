@@ -35,7 +35,7 @@ module.exports = {
         }
 
         if(Game.rooms[name].memory.mode == undefined) {
-            Game.rooms[name].memory.mode = 'setup';
+            Game.rooms[name].memory.mode = 'harvest';
         }
 
         if(Game.rooms[name].memory.energyavailable == undefined) {
