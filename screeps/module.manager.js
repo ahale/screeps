@@ -15,7 +15,7 @@ module.exports = {
             console.log('room: '+name);
             // limit to just one active room by only initialising at start
             Game.rooms[name].memory.active = true;
-            Game.rooms[name].memory.homeroom = name;
+            Game.rooms.memory.homeroom = name;
         }
     },
 
@@ -28,18 +28,39 @@ module.exports = {
                 this.run_room(name);
             }
         }
+
+
+
         this.run_creeps();
     },
 
     run_room: function(name) {
         // console.log('processing room: '+name);
         factory.run(name);
+        this.stupid_stuff_to_get_creeps()
     },
 
     run_creeps: function() {
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
             basecreep.run(creep);
+        }
+    },
+
+    stupid_stuff_to_get_creeps: function() {
+        var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == 'harvester'));
+        var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == 'upgrader'));
+        if(!harvesters.length) {
+            var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+            if(_.isString(newName)) {
+                console.log('building harvester '+newName)
+            }
+        }
+        if(!upgraders.length) {
+            var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "upgrader"});
+            if(_.isString(newName)) {
+                console.log('building upgrader '+newName)
+            }
         }
     },
 }
