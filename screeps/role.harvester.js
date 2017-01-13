@@ -2,12 +2,10 @@
 module.exports = {
     run: function(creep) {
         console.log('todo: '+creep.memory.role+' specific stuff');
-        console.log(creep.room.memory.mode);
-        var room_mode = creep.room.memory.mode;
         var source_mode = creep.room.memory.sources[creep.memory.src].mode;
         // var res = eval(creep.memory.role+'.run')(creep);
-        if(room_mode == "setup") {
-            this.setup(creep);
+        if(creep.room.memory.mode == "setup") {
+            this.setup_mode(creep);
         }
         else {
             console.log('this.'+source_mode);
@@ -15,7 +13,7 @@ module.exports = {
         }
     },
 
-    setup: function(creep) {
+    setup_mode: function(creep) {
         console.log('todo: harvester in initial setup mode');
     },
 
