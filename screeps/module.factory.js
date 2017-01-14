@@ -7,7 +7,7 @@ module.exports = {
         // console.log('room '+name+' has energyCapacityAvailable = '+size);
         if(Game.rooms[name].memory.queues.priorityspawnqueue.length > 0) {
             var build_data = Game.rooms[name].memory.queues.priorityspawnqueue[0];
-            var res = this.build(build_data);
+            var res = this.build(name, build_data);
             if(_.isString(res)) {
                 console.log('building '+res+' ('+data.flavour+') (Priority)');
                 Game.rooms[name].memory.queues.priorityspawnqueue.shift();
@@ -15,17 +15,15 @@ module.exports = {
         }
         if(!Game.rooms[name].memory.queues.priorityspawnqueue.length && Game.rooms[name].memory.queues.spawnqueue.length > 0) {
             var build_data = Game.rooms[name].memory.queues.spawnqueue[0];
-            var res = this.build(build_data);
+            var res = this.build(name, build_data);
             if(_.isString(res)) {
                 console.log('building '+res+' ('+data.flavour+')');
                 Game.rooms[name].memory.queues.spawnqueue.shift();
             }
         }
-
-
     },
 
-    build: function(build_data) {
+    build: function(name, build_data) {
         console.log('todo: write factory build function');
     },
 

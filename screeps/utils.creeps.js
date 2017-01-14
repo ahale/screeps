@@ -1,3 +1,5 @@
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", 'build_type': 'structure'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", 'build_type': 'road'});
 
 module.exports = {
     loadCreepCounts: function() {
