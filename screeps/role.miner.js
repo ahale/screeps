@@ -1,3 +1,4 @@
+// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'miner'})
 
 module.exports = {
     run: function(creep) {
