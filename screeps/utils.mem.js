@@ -16,6 +16,7 @@ module.exports = {
         }
         Memory.rooms[Memory.rooms.homeroom].active = true;
         Memory.timers = {};
+        Memory.timers.last_runs = {};
         Memory.mainManagerInit = true;
     },
 

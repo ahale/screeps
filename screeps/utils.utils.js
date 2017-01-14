@@ -1,5 +1,6 @@
 
 var EXTENSION_LEVELS = {"1": 0, "2": 5, "3": 10, "4": 20, "5": 30, "6": 40, "7": 50, "8": 60};
+var TIMERS = [10, 50, 100];
 
 module.exports = {
     checkArea: function() {
