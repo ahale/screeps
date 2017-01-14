@@ -71,7 +71,7 @@ module.exports = {
         if(!structure_builders.length) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", "build_type": 'structure'});
             if(_.isString(newName)) {
-                console.log('building upgrader '+newName)
+                console.log('building structure builder '+newName)
                 Game.spawns['Spawn1'].memory.building = "upgrader";
             }
             return;
@@ -79,7 +79,7 @@ module.exports = {
         if(!road_builders.length) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", "build_type": 'road'});
             if(_.isString(newName)) {
-                console.log('building upgrader '+newName)
+                console.log('building road builder '+newName)
                 Game.spawns['Spawn1'].memory.building = "upgrader";
             }
             return;
