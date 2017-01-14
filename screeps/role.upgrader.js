@@ -31,10 +31,11 @@ module.exports = {
             }
             else {
                 var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
+
                 if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(src);
                     creep.memory.work.move += 1;
-                    var bla = creep.pos.getRangeTo(creep.memory._move.dest.x, creep.memory._move.dest.x)
+                    creep.pos.getRangeTo(src.pos);
                     console.log(bla);
 
                 }
