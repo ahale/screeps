@@ -46,8 +46,8 @@ module.exports = {
             console.log('need to build '+need_to_build);
             var start_position = room_spawn[0].pos;
             start_position.y = start_position.y - 5 + Game.rooms[name].controller.level;
-            start_position.x = start_position.x - 2;
-            if(Game.rooms[name].controller.level % 2 == 0) { start_position.x = start_position.x -2; }
+            start_position.x = start_position.x - 1;
+            if(Game.rooms[name].controller.level % 2 == 0) { start_position.x = start_position.x - 1; }
             for (i = 0; i < need_to_build; i++) {
                 var res = -1;
                 var n = 0;
