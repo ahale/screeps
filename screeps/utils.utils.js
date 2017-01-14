@@ -43,16 +43,19 @@ module.exports = {
         if(room_spawn.length) {
             if(Game.rooms[name].controller.level < 4) { var need_to_build = 5; }
             else { var need_to_build = 10; }
+            console.log('need to build '+need_to_build);
             var start_position = room_spawn[0].pos;
             start_position.y = start_position.y - 5 + Game.rooms[name].controller.level;
             start_position.x = start_position.x - 2;
             if(Game.rooms[name].controller.level % 2 == 0) { start_position.x = start_position.x -2; }
-
             for (i = 0; i < need_to_build; i++) {
                 var res = -1;
-                while(res != 0) {
+                var n = 0;
+                while(res != 0 && n < 20) {
                     start_position.x += -2;
                     res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
+                    console.log(start_position.x+', '+start_position.y);
+                    n++;
                 }
             }
         }
