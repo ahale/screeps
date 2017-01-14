@@ -29,7 +29,7 @@ module.exports = {
         console.log('for '+build_data['flavour']+', using recipe '+partlist);
         var room_spawn = utils.get_room_spawn(name);
         var newName = room_spawn.createCreep(partlist, undefined, build_data);
-        if(_.isString(newName)) { Game.spawns['Spawn1'].memory.building = flavour; }
+        if(_.isString(newName)) { Game.spawns['Spawn1'].memory.building = build_data['flavour']; }
         return newName;
     },
 
