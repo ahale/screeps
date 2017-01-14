@@ -70,13 +70,9 @@ module.exports = {
     },
 
     get_room_spawn: function(name) {
-        console.log('utils.get_room_spawn() '+name);
-        console.log(_.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name)));
+        // console.log('utils.get_room_spawn() '+name);
+        // console.log(_.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name)));
         var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
-
-        console.log(room_spawn);
-        console.log(room_spawn.length);
-
         if(!room_spawn.length) {
             return false;
         } else {

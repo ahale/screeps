@@ -15,7 +15,7 @@ module.exports = {
 
     get_parts: function(name, flavour) {
         room_spawn = utils.get_room_spawn(name); // = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
-        console.log('room_spawn: '+room_spawn);
+        console.log('room_spawn!: '+room_spawn);
         if(!room_spawn) { return false; }
         var room_energy = Game.rooms[name].energyCapacityAvailable;
         if(Game.rooms[name].memory.parts[flavour][room_energy] != undefined) {
