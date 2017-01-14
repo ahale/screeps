@@ -1,4 +1,4 @@
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "harvester"});
+// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'upgrader', 'generic': true})
 
 module.exports = {
     run: function(creep) {
