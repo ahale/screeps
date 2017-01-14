@@ -9,7 +9,7 @@ module.exports = {
     },
 
     get_part_info: function(flavour) {
-        part_info = false;
+        var part_info = false;
         if(flavour == 'harvester') {
             part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
         }
