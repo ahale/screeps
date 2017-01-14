@@ -5,7 +5,7 @@ module.exports = {
     },
 
     buildRoads: function(from, to, name) {
-		path = this.get_path(from, to, name);
+		var path = this.get_path(from, to, name);
 		console.log('building road length '+path.length+' in room '+name);
 		for(var i in path) {
 			var res = Game.rooms[name].createConstructionSite(path[i].x, path[i].y, STRUCTURE_ROAD);
@@ -23,6 +23,12 @@ module.exports = {
         var res = Game.rooms[name].createConstructionSite((x-1), (y-1), STRUCTURE_CONTAINER);
         var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_ROAD);
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
+    },
+
+    controller_level_change: function(name) {
+        console.log('roomlevel changed from '+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
+        Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
+        this.buildExtensions();
     },
 
     buildExtensions: function(name) {
@@ -117,11 +123,6 @@ module.exports = {
         this.buildRoads(container_pos, Game.spawns.Spawn1.pos, name);
         this.buildRoads(container_pos, source.pos, name);
         Game.rooms[name].memory.roominit = true;
-    },
-
-    controller_level_change: function(name) {
-        console.log('roomlevel changed from '+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
-        Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
     },
 
     checkarea: function(_pos, distance, direction, type) {
