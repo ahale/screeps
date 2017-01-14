@@ -34,7 +34,7 @@ module.exports = {
                     creep.moveTo(targets[0]);
                 }
             } else {
-                creep.memory.build_type = false;
+                creep.memory.build_type = 'structure';
             }
         }
         else {

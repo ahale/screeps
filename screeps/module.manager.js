@@ -68,7 +68,7 @@ module.exports = {
             }
             return;
         }
-        if(!road_builders.length) {
+        if(!road_builders.length && structure_builders.length < 2) {
             var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "builder", "build_type": 'road'});
             if(_.isString(newName)) {
                 console.log('building road builder '+newName)
