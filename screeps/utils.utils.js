@@ -13,7 +13,8 @@ module.exports = {
 	},
 
     get_path: function(from, to, name) {
-        return path = Game.rooms[name].findPath(from, to, { ignoreCreeps: true });
+        var path = Game.rooms[name].findPath(from, to, { ignoreCreeps: true });
+        return path;
     },
 
     buildContainers: function(pos, name) {
