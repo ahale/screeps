@@ -15,6 +15,10 @@ module.exports = {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
         }
+        console.log(flavour);
+        console.log(generic);
+
+        console.log(part_info);
         return part_info;
     },
 
