@@ -35,7 +35,7 @@ module.exports = {
                     creep.moveTo(src);
                     creep.memory.work.move += 1;
                     var bla = creep.pos.getRangeTo(creep.memory._move.dest.x, creep.memory._move.dest.x)
-                    console.log(bla;
+                    console.log(bla);
 
                 }
                 else {
