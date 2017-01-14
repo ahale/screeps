@@ -10,7 +10,7 @@ module.exports = {
             var build_data = Game.rooms[name].memory.queues.priorityspawnqueue[0];
             var res = this.build(name, build_data);
             if(_.isString(res)) {
-                console.log('building '+res+' ('+data.flavour+') (Priority)');
+                console.log('building '+res+' ('+build_data.flavour+') (Priority)');
                 Game.rooms[name].memory.queues.priorityspawnqueue.shift();
             }
         }
@@ -18,13 +18,14 @@ module.exports = {
             var build_data = Game.rooms[name].memory.queues.spawnqueue[0];
             var res = this.build(name, build_data);
             if(_.isString(res)) {
-                console.log('building '+res+' ('+data.flavour+')');
+                console.log('building '+res+' ('+build_data.flavour+')');
                 Game.rooms[name].memory.queues.spawnqueue.shift();
             }
         }
     },
 
     build: function(name, build_data) {
+        console.log('build_data: '+typeof(build_data));
         console.log('build_data: '+build_data);
         console.log('build_data: '+build_data.flavour);
         console.log('build_data: '+build_data[flavour]);
