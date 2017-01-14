@@ -37,30 +37,23 @@ module.exports = {
     },
 
     buildExtensions: function(name) {
-        var room_level = Game.rooms[name].controller.level;
+        if(Game.rooms[name].controller.level == 0) { return ; }
         var extension_list = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {filter: { structureType: STRUCTURE_EXTENSION }})
-        var need_to_build = EXTENSION_LEVELS[room_level] - extension_list.length;
         var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
         if(room_spawn.length) {
-            console.log('room '+name+' needs '+need_to_build+' more extensions');
-            if(need_to_build > 0) {
-                var start_position = room_spawn[0].pos;
-                if(Game.rooms[name].memory.last_extension_pos) {
-                    start_position = new RoomPosition(Game.rooms[name].memory.last_extension_pos[0], Game.rooms[name].memory.last_extension_pos[1], name);
-                    if(start_position.x < 15) {
-                        start_position = room_spawn[0].pos;
-                        start_position.y = start_position.y -2;
-                    }
-                }
-                for (i = 0; i < need_to_build; i++) {
-                    var res = -1;
-                    while(res != 0) {
-                        start_position.x += -2;
-                        res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
+            if(Game.rooms[name].controller.level < 4) { var need_to_build = 5; }
+            else { var need_to_build = 10; }
+            var start_position = room_spawn[0].pos;
+            start_position.y = start_position.y - 5 + Game.rooms[name].controller.level;
+            start_position.x = start_position.x - 2;
+            if(Game.rooms[name].controller.level % 2 == 0) { start_position.x = start_position.x -2; }
 
-                    }
+            for (i = 0; i < need_to_build; i++) {
+                var res = -1;
+                while(res != 0) {
+                    start_position.x += -2;
+                    res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
                 }
-                Game.rooms[name].memory.last_extension_pos = [start_position.x, start_position.y]
             }
         }
     },
