@@ -33,6 +33,8 @@ module.exports = {
                     creep.memory.work.work += 1;
                     creep.moveTo(targets[0]);
                 }
+            } else {
+                creep.memory.build_type = false;
             }
         }
         else {
