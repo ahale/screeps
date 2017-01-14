@@ -17,9 +17,9 @@ module.exports = {
     filterConstructionSites(creep, targets) {
         if(creep.memory.build_type) {
             if(creep.memory.build_type == 'road') {
-                targets = _.filter(targets, (site) => site.structureType == 'road').length;
+                targets = _.filter(targets, (site) => site.structureType == 'road');
             } else {
-                targets = _.filter(targets, (site) => site.structureType != 'road').length;
+                targets = _.filter(targets, (site) => site.structureType != 'road');
             }
         }
         return targets;
