@@ -93,9 +93,6 @@ module.exports = {
             Game.rooms[name].memory.queues['spawnqueue'] = [];
             Game.rooms[name].memory.queues['priorityspawnqueue'] = [];
         }
-        if(Game.rooms[name].memory.parts == undefined) {
-            Game.rooms[name].memory.parts = {};
-        }
 
         if(Game.rooms[name].memory.last_extension_pos == undefined) {
             Game.rooms[name].memory.last_extension_pos = false;

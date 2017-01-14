@@ -10,15 +10,6 @@ module.exports = {
             return;
         }
         mem.init();
-        Memory.mainManagerInit = true;
-        for(var name in Game.rooms) {
-            console.log('room: '+name);
-            if(!Game.rooms[name].memory.roominit) {
-                utils.roominit(name);
-            }
-            Memory.rooms.homeroom = name;
-        }
-        Memory.rooms[Memory.rooms.homeroom].active = true;
     },
 
     run: function() {

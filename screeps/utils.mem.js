@@ -1,9 +1,21 @@
 
+var utils = require('utils.utils');
+
 module.exports = {
     init: function()  {
-        console.log('todo: write general manager memory stuff');
+        // console.log('todo: write general manager memory stuff');
+        if(Memory.parts == undefined) {
+            Memory.parts = {};
+        }
+
         this.loadCreepCounts();
         this.loadRecipes();
+        for(var name in Game.rooms) {
+            if(!Game.rooms[name].memory.roominit) { utils.roominit(name); }
+            Memory.rooms.homeroom = name;
+        }
+        Memory.rooms[Memory.rooms.homeroom].active = true;
+        Memory.mainManagerInit = true;
     },
 
     roomMemoryInit: function(name) {

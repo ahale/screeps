@@ -20,9 +20,9 @@ module.exports = {
         var room_spawn = utils.get_room_spawn(name); // = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
         if(!room_spawn) { return false; }
         var room_energy = Game.rooms[name].energyCapacityAvailable;
-        if(Game.rooms[name].memory.parts[flavour] == undefined) { Game.rooms[name].memory.parts[flavour] = {}; }
-        if(Game.rooms[name].memory.parts[flavour][room_energy] != undefined) {
-            return Game.rooms[name].memory.parts[flavour][room_energy];
+        if(Memory.parts[flavour] == undefined) { Memory.parts[flavour] = {}; }
+        if(Memory.parts[flavour][room_energy] != undefined) {
+            return Memory.parts[flavour][room_energy];
         }
 
         var part_info = this.get_part_info(flavour);
@@ -39,7 +39,7 @@ module.exports = {
                 break;
             }
         }
-        Game.rooms[name].memory.parts[flavour][room_energy] = parts;
+        Memory.parts[flavour][room_energy] = parts;
         return parts;
     },
 
