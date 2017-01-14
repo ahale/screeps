@@ -1,5 +1,5 @@
-// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'upgrader', 'generic': true, 'build_type': 'road'})
-// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'upgrader', 'generic': true, 'build_type': 'structure'})
+// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'road'})
+// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'structure'})
 
 
 var creeputil = require('utils.creeps');
