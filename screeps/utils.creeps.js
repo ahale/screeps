@@ -24,7 +24,7 @@ module.exports = {
         var room_energy = Game.rooms[name].energyCapacityAvailable;
         if(Game.rooms[name].memory.parts[flavour] == undefined) { Game.rooms[name].memory.parts[flavour] = {}; }
         if(Game.rooms[name].memory.parts[flavour][room_energy] != undefined) {
-            return false;
+            return Game.rooms[name].memory.parts[flavour][room_energy];
         }
 
         var part_info = this.get_part_info(flavour);
@@ -35,6 +35,7 @@ module.exports = {
         for (i = 0; i < 10; i++) {
             if(room_spawn.canCreateCreep(parts.concat(add_parts))) {
                 parts = parts.concat(add_parts);
+                console.log(i)
             }
             else {
                 break;
