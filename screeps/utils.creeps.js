@@ -9,7 +9,6 @@ module.exports = {
     },
 
     get_part_info: function(flavour) {
-        console.log('get_part_info() flavour: '+flavour);
         var part_info = false;
         if(flavour == 'harvester') {
             part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
@@ -18,7 +17,6 @@ module.exports = {
     },
 
     get_parts: function(name, flavour) {
-        console.log('get_parts() flavour: '+flavour);
         var room_spawn = utils.get_room_spawn(name); // = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
         if(!room_spawn) { return false; }
         var room_energy = Game.rooms[name].energyCapacityAvailable;
@@ -33,9 +31,7 @@ module.exports = {
         var last_parts = false;
 
         for (i = 0; i < 10; i++) {
-            console.log(parts.concat(add_parts));
             var res = room_spawn.canCreateCreep(parts.concat(add_parts));
-            console.log(res);
             if(res == 0) {
                 parts = parts.concat(add_parts);
             }

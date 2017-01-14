@@ -25,12 +25,9 @@ module.exports = {
     },
 
     build: function(name, build_data) {
-        console.log('build_data: '+typeof(build_data));
-        console.log('build_data: '+build_data);
-        console.log('build_data: '+build_data.flavour);
         var partlist = creeputil.get_parts(name, build_data['flavour']);
-        console.log('for '+build_data['flavour']+' using recipe '+partlist);
-        room_spawn = utils.get_room_spawn(name);
+        console.log('for '+build_data['flavour']+', using recipe '+partlist);
+        var room_spawn = utils.get_room_spawn(name);
         var newName = room_spawn.createCreep(partlist, undefined, build_data);
         if(_.isString(newName)) { Game.spawns['Spawn1'].memory.building = flavour; }
         return newName;
