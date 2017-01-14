@@ -1,7 +1,7 @@
 
 var utils = require('utils.utils');
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", 'build_type': 'structure'});
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "builder", 'build_type': 'road'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "builder", 'build_type': 'structure'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "builder", 'build_type': 'road'});
 
 module.exports = {
     loadCreepCounts: function() {
@@ -9,8 +9,11 @@ module.exports = {
     },
 
     get_part_info: function(flavour) {
-        if(flavour == 'harvester') { return {"base": ['work', 'carry', 'move'], "add": ['work', 'carry', 'move']}; }
-
+        part_info = false;
+        if(flavour == 'harvester') {
+            part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
+        }
+        return part_info;
     },
 
     get_parts: function(name, flavour) {
@@ -23,6 +26,7 @@ module.exports = {
         }
 
         var part_info = this.get_part_info(flavour);
+        console.log('part_info: '+part_info);
         var parts = part_info[0];
         var add_parts = part_info[0];
         var last_parts = false;
