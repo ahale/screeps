@@ -1,5 +1,6 @@
 
 var utils = require('utils.utils');
+var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(name) {
@@ -25,6 +26,12 @@ module.exports = {
 
     build: function(name, build_data) {
         console.log('todo: write factory build function');
+        var partlist = creeputil.get_parts(name, build_data['flavour']);
+        console.log('for '+build_data['flavour']+' using recipe '+partlist);
+        room_spawn = utils.get_room_spawn(name);
+        var newName = room_spawn.createCreep(partlist, undefined, build_data);
+        if(_.isString(newName)) { Game.spawns['Spawn1'].memory.building = flavour; }
+        return newName;
     },
 
 }

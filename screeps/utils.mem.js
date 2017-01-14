@@ -16,5 +16,9 @@ module.exports = {
 
     loadRecipes: function() {
         console.log('todo: write recipedata into memory');
+        // move this into memory stuff
+        // if(creep.room.memory.parts.harvester == undefined) {
+        //     Game.rooms[name].memory.parts.harvester = {};
+        // }
     },
 }

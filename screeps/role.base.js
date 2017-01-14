@@ -8,16 +8,16 @@ module.exports = {
     run: function(creep) {
         if(creep.memory.init == undefined) { this.memory_init(creep); }
         if(creep.ticksToLive == 1) {
-            console.log(creep.memory.role+" "+creep.name+" about to die: ");
-            console.log(creep.memory.role+" "+creep.name+' stats: worked: '+creep.memory.work.work+', moved: '+creep.memory.work.move+', harvest: '+creep.memory.work.harvest+', wait: '+creep.memory.work.wait);
+            console.log(creep.memory.flavour+" "+creep.name+" about to die: ");
+            console.log(creep.memory.flavour+" "+creep.name+' stats: worked: '+creep.memory.work.work+', moved: '+creep.memory.work.move+', harvest: '+creep.memory.work.harvest+', wait: '+creep.memory.work.wait);
             return;
         }
 
-        if(creep.memory.role == "miner") { miner.run(creep); };
-        if(creep.memory.role == "builder") { builder.run(creep); };
-        if(creep.memory.role == "upgrader") { upgrader.run(creep); };
-        if(creep.memory.role == "harvester") { harvester.run(creep); };
-        if(creep.memory.role == "transporter") { transporter.run(creep); };
+        if(creep.memory.flavour == "miner") { miner.run(creep); };
+        if(creep.memory.flavour == "builder") { builder.run(creep); };
+        if(creep.memory.flavour == "upgrader") { upgrader.run(creep); };
+        if(creep.memory.flavour == "harvester") { harvester.run(creep); };
+        if(creep.memory.flavour == "transporter") { transporter.run(creep); };
     },
 
     memory_init: function(creep) {

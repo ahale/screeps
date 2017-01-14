@@ -1,11 +1,4 @@
-
-module.exports = {
-    run: function(creep) {
-        console.log('todo: '+creep.memory.role+' specific stuff');
-    }
-}
-
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "harvester"});
 
 module.exports = {
     run: function(creep) {

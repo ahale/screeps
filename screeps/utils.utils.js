@@ -69,6 +69,15 @@ module.exports = {
         }
     },
 
+    get_room_spawn: function(name) {
+        var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.roomName == name));
+        if(!room_spawn.length) {
+            return false;
+        } else {
+            return room_spawn[0];
+        }
+    },
+
     roominit: function(name) {
         // check if i have claimed room
 
@@ -81,6 +90,9 @@ module.exports = {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
             Game.rooms[name].memory.queues['priorityspawnqueue'] = [];
+        }
+        if(Game.rooms[name].memory.parts == undefined) {
+            Game.rooms[name].memory.parts = {};
         }
 
         if(Game.rooms[name].memory.last_extension_pos == undefined) {

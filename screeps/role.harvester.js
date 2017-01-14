@@ -1,13 +1,8 @@
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "harvester"});
 var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(creep) {
-        // return;
-        // console.log('todo: '+creep.memory.role+' specific stuff');
-        // var source_mode = creep.room.memory.sources[creep.memory.src].mode;
-        // var res = eval(creep.memory.role+'.run')(creep);
-        // console.log("creep.room.memory.mode: "+creep.room.memory.mode);
         if(!creep.memory.init) { this.memory_init(creep); }
         if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
         if(creep.room.memory.mode == "miner") { this.miner(creep); };
