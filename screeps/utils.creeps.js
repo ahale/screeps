@@ -30,7 +30,10 @@ module.exports = {
         var part_info = this.get_part_info(flavour);
         console.log('part_info: '+part_info);
         var parts = part_info[0];
-        var add_parts = part_info[0];
+        console.log(parts[0])
+        console.log(parts[1])
+
+        var add_parts = part_info[1];
         var last_parts = false;
 
         for (i = 0; i < 10; i++) {
