@@ -1,3 +1,4 @@
+var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(creep) {
