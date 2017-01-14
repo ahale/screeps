@@ -25,12 +25,13 @@ module.exports = {
     },
 
     build: function(name, build_data) {
-        var partlist = creeputil.get_parts(name, build_data['flavour']);
-        console.log('for '+build_data['flavour']+', using recipe '+partlist);
         var room_spawn = utils.get_room_spawn(name);
-        var newName = room_spawn.createCreep(partlist, undefined, build_data);
-        if(_.isString(newName)) { Game.spawns['Spawn1'].memory.building = build_data['flavour']; }
-        return newName;
+        if(room_spawn.spawning) { return false; }
+        var partlist = creeputil.get_parts(name, build_data['flavour']);
+        // console.log('for '+build_data['flavour']+', using recipe '+partlist);
+        var res = room_spawn.createCreep(partlist, undefined, build_data);
+        if(_.isString(res)) { Game.spawns['Spawn1'].memory.building = build_data['flavour']; }
+        return res;
     },
 
 }
