@@ -5,12 +5,16 @@ module.exports = {
     },
 
     buildRoads: function(from, to, name) {
-		var path = Game.rooms[name].findPath(from, to, { ignoreCreeps: true });
+		path = this.get_path(from, to, name);
 		console.log('building road length '+path.length+' in room '+name);
 		for(var i in path) {
 			var res = Game.rooms[name].createConstructionSite(path[i].x, path[i].y, STRUCTURE_ROAD);
 		}
 	},
+
+    get_path: function(from, to, name) {
+        return path = Game.rooms[name].findPath(from, to, { ignoreCreeps: true });
+    },
 
     buildContainers: function(pos, name) {
         // creates two containers in row above provided pos
@@ -19,6 +23,31 @@ module.exports = {
         var res = Game.rooms[name].createConstructionSite((x-1), (y-1), STRUCTURE_CONTAINER);
         var res = Game.rooms[name].createConstructionSite((x), (y-1), STRUCTURE_ROAD);
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
+    },
+
+    buildExtensions: function(name) {
+        var room_level = Game.rooms[name].controller.level;
+        var extension_list = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {filter: { structureType: STRUCTURE_EXTENSION }})
+        var need_to_build = EXTENSION_LEVELS[room_level] - extension_list.length;
+        var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.room == name);
+        if(room_spawn.length) {
+            console.log('room '+name+' needs '+need_to_build+' more extensions');
+            if(need_to_build > 0) {
+                var start_position = room_spawn[0].pos;
+                if(Game.rooms[name].memory.last_extension_pos) {
+                    start_position = new RoomPosition(Game.rooms[name].memory.last_extension_pos[0], Game.rooms[name].memory.last_extension_pos[1], name);
+                }
+                start_position.x += -2;
+                for (i = 0; i < need_to_build; i++) {
+                    var res = -1;
+                    while(res != 0) {
+                        res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
+                        start_position.x += -2;
+                    }
+                }
+                Game.rooms[name].memory.last_extension_pos = [start_position.x, start_position.y]
+            }
+        }
     },
 
     clear_expired_creeps: function() {
@@ -36,10 +65,15 @@ module.exports = {
             Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
         }
 
+
         if(Game.rooms[name].memory.queues == undefined) {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
             Game.rooms[name].memory.queues['priorityspawnqueue'] = [];
+        }
+
+        if(Game.rooms[name].memory.last_extension_pos == undefined) {
+            Game.rooms[name].memory.last_extension_pos = false;
         }
 
         if(Game.rooms[name].memory.mode == undefined) {
