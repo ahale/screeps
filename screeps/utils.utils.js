@@ -29,7 +29,7 @@ module.exports = {
         var room_level = Game.rooms[name].controller.level;
         var extension_list = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {filter: { structureType: STRUCTURE_EXTENSION }})
         var need_to_build = EXTENSION_LEVELS[room_level] - extension_list.length;
-        var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.room == name);
+        var room_spawn = _.filter(Game.spawns, (spawn) => (spawn.pos.room == name));
     //     if(room_spawn.length) {
     //         console.log('room '+name+' needs '+need_to_build+' more extensions');
     //         if(need_to_build > 0) {
