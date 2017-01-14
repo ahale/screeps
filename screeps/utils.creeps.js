@@ -11,14 +11,10 @@ module.exports = {
     get_part_info: function(flavour, generic) {
         var part_info = false;
         if(generic != undefined) {
-            if(flavour == 'harvester' && flavour == 'upgrader' && flavour == 'builder') {
+            if(flavour == 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
         }
-        console.log(flavour);
-        console.log(generic);
-
-        console.log(part_info);
         return part_info;
     },
 
