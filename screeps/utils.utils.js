@@ -54,7 +54,7 @@ module.exports = {
                 while(res != 0 && n < 20) {
                     start_position.x += -2;
                     res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
-                    console.log(start_position.x+', '+start_position.y);
+                    // console.log(start_position.x+', '+start_position.y);
                     n++;
                 }
             }
