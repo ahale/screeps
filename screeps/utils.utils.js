@@ -21,6 +21,14 @@ module.exports = {
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
     },
 
+    clear_expired_creeps: function() {
+        for(var name in Memory.creeps) {
+            if(!Game.creeps[name]) {
+                delete Memory.creeps[name];
+            }
+        }
+    },
+
     roominit: function(name) {
         // check if i have claimed room
 
