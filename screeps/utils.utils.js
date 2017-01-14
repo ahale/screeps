@@ -80,6 +80,7 @@ module.exports = {
         if(!room_spawn.length) {
             return false;
         } else {
+            console.log('wtf');
             return room_spawn[0];
         }
     },
