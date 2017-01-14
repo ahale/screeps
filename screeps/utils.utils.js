@@ -28,6 +28,11 @@ module.exports = {
         var res = Game.rooms[name].createConstructionSite((x+1), (y-1), STRUCTURE_CONTAINER);
     },
 
+    log_time: function() {
+        Memory.timers.gametime = Game.time;
+        return true;
+    },
+
     controller_level_change: function(name) {
         if(Game.rooms[name].controller.level > Game.rooms[name].memory.controller_level) {
             this.buildExtensions(name);

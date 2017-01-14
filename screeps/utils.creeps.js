@@ -8,12 +8,20 @@ module.exports = {
         console.log('todo: write load creep counts into memory');
     },
 
-    get_part_info: function(flavour, generic) {
-        var part_info = false;
-        if(generic != undefined) {
+    get_part_info: function(flavour, name) {
+        if(Game.rooms[name].memory.mode == 'harvest') {
+            var part_info = false;
             if(flavour == 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
+            if(flavour == 'miner') {
+                part_info = {'base': ['move', 'work', 'work'], 'add': ['work']}
+            }
+            if(flavour == 'transporter') {
+                part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']}
+            }
+        } else {
+
         }
         return part_info;
     },
@@ -26,7 +34,7 @@ module.exports = {
         if(Memory.parts[flavour][room_energy] != undefined) {
             return Memory.parts[flavour][room_energy];
         }
-        var part_info = this.get_part_info(flavour, generic);
+        var part_info = this.get_part_info(flavour, name);
         var parts = part_info['base'];
         var add_parts = part_info['add'];
         var last_parts = false;

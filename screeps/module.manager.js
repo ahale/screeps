@@ -13,6 +13,7 @@ module.exports = {
     },
 
     run: function() {
+        utils.log_time();
         utils.clear_expired_creeps();
         for(var name in Game.rooms) {
             if(Game.rooms[name].memory.active) {
