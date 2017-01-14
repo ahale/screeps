@@ -3,8 +3,10 @@ var utils = require('utils.utils');
 
 module.exports = {
     run: function(name) {
+        var size = Game.rooms[name].energyCapacityAvailable;
+        console.log('room '+name+' has energyCapacityAvailable = '+size);
         // console.log('todo: write factory run loop');
-        utils.clear_expired_creeps();
+
     },
 
     build: function(meta) {
