@@ -34,7 +34,8 @@ module.exports = {
                 if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(src);
                     creep.memory.work.move += 1;
-                    console.log(Room.deserializePath(creep.memory._move.path).length);
+                    var bla = creep.pos.getRangeTo(creep.memory._move.dest.x, creep.memory._move.dest.x)
+                    console.log(bla;
 
                 }
                 else {
