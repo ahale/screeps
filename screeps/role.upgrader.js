@@ -32,6 +32,7 @@ module.exports = {
                     creep.memory.work.move += 1;
                 }
                 else {
+                    creep.moveTo(creep.room.controller);
                     creep.memory.work.work += 1;
                 }
             }

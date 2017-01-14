@@ -1,4 +1,5 @@
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"role": "harvester"});
+var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(creep) {
@@ -16,13 +17,7 @@ module.exports = {
 
     harvest: function(creep) {
         if(creep.carry.energy < creep.carryCapacity) {
-            var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
-            if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(src);
-                creep.memory.work.move += 1;
-            } else {
-                creep.memory.work.harvest += 1;
-            }
+            creeputil.harvest(creep);
         }
         else {
             var targets = creep.room.find(FIND_STRUCTURES, {
