@@ -64,12 +64,6 @@ module.exports = {
                     n++;
                 }
             }
-            if(Game.rooms[name].controller.level == 2) {
-                var container_pos = new RoomPosition(start_position.x, (start_position.y - 1), name)
-                var corner_pos = new RoomPosition((start_position.x - 9), (start_position.y - 1), name)
-                this.buildRoads(Game.spawns.Spawn1.pos, corner_pos.pos, name);
-                this.buildRoads(corner_pos.pos, container_pos.pos, name);
-            }
         }
     },
 
