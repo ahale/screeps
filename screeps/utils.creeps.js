@@ -34,7 +34,9 @@ module.exports = {
 
         for (i = 0; i < 10; i++) {
             console.log(parts.concat(add_parts));
-            if(room_spawn.canCreateCreep(parts.concat(add_parts))) {
+            var res = room_spawn.canCreateCreep(parts.concat(add_parts));
+            console.log(res);
+            if(res == 0) {
                 parts = parts.concat(add_parts);
             }
             else {
