@@ -25,7 +25,7 @@ module.exports = {
     },
 
     build: function(name, build_data) {
-        console.log('build_data: '+build_data);
+        console.log('build_data: '+build_data.flavour);
         var partlist = creeputil.get_parts(name, build_data['flavour']);
         console.log('for '+build_data['flavour']+' using recipe '+partlist);
         room_spawn = utils.get_room_spawn(name);
