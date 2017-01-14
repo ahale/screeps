@@ -20,7 +20,7 @@ module.exports = {
             creep.memory.building = true;
         }
         if(creep.memory.building) {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            var targets = creeputil.filterConstructionSites(creep, creep.room.find(FIND_CONSTRUCTION_SITES));
             if(targets.length) {
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.memory.work.move += 1;
@@ -46,6 +46,7 @@ module.exports = {
     },
 
     memory_init: function(creep) {
+        if(creep.memory.build_type == undefined) { creep.memory.build_type = false; }
         creep.memory.init = true;
     }
 }

@@ -13,4 +13,15 @@ module.exports = {
             creep.memory.work.harvest += 1;
         }
     },
+
+    filterConstructionSites(creep, targets) {
+        if(creep.memory.build_type) {
+            if(creep.memory.build_type == 'road') {
+                targets = _.filter(targets, (site) => site.structureType == 'road').length;
+            } else {
+                targets = _.filter(targets, (site) => site.structureType != 'road').length;
+            }
+        }
+        return targets;
+    },
 }
