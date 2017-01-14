@@ -23,7 +23,7 @@ module.exports = {
                 if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller);
                     creep.memory.work.move += 1;
-                    console.log(JSON.stringify(Room.deserializePath(creep.memory._move.path)));
+                    console.log(JSON.stringify(Room.deserializePath(creep.memory._move.path)).length);
                 }
                 else {
                     creep.moveTo(creep.room.controller);
