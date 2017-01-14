@@ -74,7 +74,7 @@ module.exports = {
         }
 
         var source = Game.getObjectById(Game.rooms[name].memory.sources[0].id);
-        var container_pos = new RoomPosition(Game.spawns.Spawn1.pos.x, (Game.spawns.Spawn1.pos.y - 3), name)
+        var container_pos = new RoomPosition(Game.spawns.Spawn1.pos.x, (Game.spawns.Spawn1.pos.y - 1), name)
         Game.rooms[name].memory.container_pos = [container_pos.x, container_pos.y];
         this.buildContainers(container_pos, name);
         this.buildRoads(Game.spawns.Spawn1.pos, source.pos, name);
