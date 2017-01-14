@@ -34,6 +34,9 @@ module.exports = {
                     creep.moveTo(targets[0]);
                 }
             }
+            if(!targets.length && creep.memory.build_type == 'road') {
+                creep.memory.build_type == 'structure';
+            }
         }
         else {
             if(creep.carry.energy < creep.carryCapacity) { creeputil.harvest(creep); }
