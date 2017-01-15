@@ -30,14 +30,14 @@ module.exports = {
             // make this set flag to wait for full energy then test all builds prime cache (or cron?)
             utils.controller_level_change(name);
         }
-        // factory.run(name);
-        // this.stupid_stuff_to_get_creeps()
+        factory.run(name);
+        this.stupid_stuff_to_get_creeps()
     },
 
     run_creeps: function() {
         for(var name in Game.creeps) {
             var creep = Game.creeps[name];
-            // basecreep.run(creep);
+            basecreep.run(creep);
         }
     },
 
