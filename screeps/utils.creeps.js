@@ -44,7 +44,7 @@ module.exports = {
         console.log(parts);
         console.log(add_parts);
 
-        for (i = 0; i < 10; i++) {
+        for(i = 0; i < 10; i++) {
             var cost = 0;
             for(var n in parts.concat(add_parts)) {
                 cost += BODYPART_COST[parts.concat(add_parts)[n]];
