@@ -74,7 +74,7 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        src = this.get_source(creep);
+        var src = this.get_source(creep);
         if(creep.harvest(src) === ERR_NOT_IN_RANGE) {
             creep.moveTo(src);
             creep.memory.work.move += 1;
