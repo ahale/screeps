@@ -13,7 +13,7 @@ module.exports = {
 
     harvest: function(creep) {
         if(creep.carry.energy < creep.carryCapacity) {
-            // creeputil.harvest(creep);
+            creeputil.harvest(creep);
         }
         else {
             var targets = creep.room.find(FIND_STRUCTURES, {

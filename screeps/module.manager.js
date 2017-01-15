@@ -25,9 +25,6 @@ module.exports = {
 
     run_room: function(name) {
         if(Game.rooms[name].memory.controller_level != Game.rooms[name].controller.level) {
-            // console.log('wtf');
-
-            // make this set flag to wait for full energy then test all builds prime cache (or cron?)
             utils.controller_level_change(name);
         }
         factory.run(name);
