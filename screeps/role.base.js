@@ -2,7 +2,7 @@
 // var builder = require('role.builder');
 // var repairer = require('role.repairer');
 // var upgrader = require('role.upgrader');
-var harvester = require('role.harvester');
+// var harvester = require('role.harvester');
 // var transporter = require('role.transporter');
 
 
