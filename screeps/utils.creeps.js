@@ -62,6 +62,17 @@ module.exports = {
         return parts;
     },
 
+    check_no_creeps: function(name) {
+        var flavours = ['harvester', 'upgrader'];
+        for(var n in flavours) {
+            var flavour = flavours[n];
+            var count = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour));
+            if(!count.length && utils.is_queued(name, flavour)) {
+                Game.rooms[name].memory.queues.spawnqueue.push({'flavour': flavour, 'generic': true});
+            }
+        }
+    },
+
     harvest: function(creep) {
         var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
         if(creep.harvest(src) === ERR_NOT_IN_RANGE) {
