@@ -24,6 +24,7 @@ module.exports = {
         } else {
 
         }
+        console.log(part_info);
         return part_info;
     },
 
