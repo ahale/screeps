@@ -19,10 +19,8 @@ module.exports = {
         var res = 0;
         var room_spawn = this.get_room_spawn(name);
         if(room_spawn.spawning && Game.rooms[name].memory.building === flavour) { res = 1; }
-        for(var item in Game.rooms[name].memory.spawnqueue) {
-            if(Game.rooms[name].memory.spawnqueue[item].flavour === flavour) {
-                res += 1;
-            }
+        for(var n in Game.rooms[name].memory.spawnqueue) {
+            if(Game.rooms[name].memory.spawnqueue[n].flavour == flavour) { res += 1; }
         }
         return res;
     },
