@@ -60,8 +60,7 @@ module.exports = {
     },
 
     check_no_creeps: function(name) {
-        var flavours = ['harvester', 'upgrader'];
-        for(var n in flavours) {
+        for(var n in ['harvester', 'upgrader']) {
             var flavour = flavours[n];
             var count = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour));
             if(!count.length && !utils.is_queued(name, flavour)) {
