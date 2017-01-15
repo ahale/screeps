@@ -40,15 +40,15 @@ module.exports = {
     },
 
     miner: function(creep) {
-        console.log('todo: harvester in miner mode');
+        // console.log('todo: harvester in miner mode');
     },
 
     container: function(creep) {
-        console.log('todo: harvester in container mode');
+        // console.log('todo: harvester in container mode');
     },
 
     delivery: function(creep) {
-        console.log('todo: harvester in full delivery mode');
+        // console.log('todo: harvester in full delivery mode');
     },
 
     memory_init: function(creep) {
