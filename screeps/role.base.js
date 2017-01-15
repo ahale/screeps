@@ -2,7 +2,7 @@
 // var builder = require('role.builder');
 // var repairer = require('role.repairer');
 // var upgrader = require('role.upgrader');
-// var harvester = require('role.harvester');
+var harvester = require('role.harvester');
 // var transporter = require('role.transporter');
 
 
@@ -19,7 +19,7 @@ module.exports = {
         // if(creep.memory.flavour === "builder") { builder.run(creep); };
         // if(creep.memory.flavour === "repairer") { repairer.run(creep); };
         // if(creep.memory.flavour === "upgrader") { upgrader.run(creep); };
-        // if(creep.memory.flavour === "harvester") { harvester.run(creep); };
+        if(creep.memory.flavour === "harvester") { harvester.run(creep); };
         // if(creep.memory.flavour === "transporter") { transporter.run(creep); };
     },
 
