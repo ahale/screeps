@@ -22,7 +22,7 @@ module.exports = {
                 part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']}
             }
             if(flavour === 'repairer') {
-                part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']}
+                part_info = {'base': ['move', 'carry', 'work'], 'add': ['move']}
             }
         }
         return part_info;
