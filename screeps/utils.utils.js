@@ -49,6 +49,9 @@ module.exports = {
     controller_level_change: function(name) {
         if(Game.rooms[name].controller.level > Game.rooms[name].memory.controller_level) {
             this.buildExtensions(name);
+            if(Game.rooms[name].controller.level == 2) {
+                Game.rooms[name].memory.mode = 'miner';
+            }
         }
         console.log('roomlevel changed from '+Game.rooms[name].memory.controller_level+' to '+Game.rooms[name].controller.level)
         Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
