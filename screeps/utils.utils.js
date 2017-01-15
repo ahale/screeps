@@ -64,7 +64,7 @@ module.exports = {
         if(room_spawn.length) {
             if(Game.rooms[name].controller.level < 4) { var need_to_build = 5; }
             else { var need_to_build = 10; }
-            console.log('need to build '+need_to_build);
+            console.log('building '+need_to_build+' containers');
             var start_position = room_spawn[0].pos;
             start_position.y = start_position.y - 5 + Game.rooms[name].controller.level;
             start_position.x = start_position.x - 1;
