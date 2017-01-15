@@ -5,7 +5,7 @@ var creeputil = require('utils.creeps');
 module.exports = {
     run: function(creep) {
         if(!creep.memory.init) { this.memory_init(creep); }
-        if(creep.memory.static) {
+        if(creep.memory.generic) {
             this.harvest(creep);
             return;
         }
