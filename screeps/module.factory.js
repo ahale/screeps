@@ -30,7 +30,7 @@ module.exports = {
         var generic = build_data['generic'];
         var partlist = creeputil.get_parts(name, build_data['flavour'], generic);
         var res = room_spawn.createCreep(partlist, undefined, build_data);
-        if(_.isString(res)) { Game.spawns['Spawn1'].memory.building = build_data['flavour']; }
+        if(_.isString(res)) { Game.rooms[name].memory.building = build_data['flavour'] }; 
         return res;
     },
 

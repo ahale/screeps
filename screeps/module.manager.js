@@ -18,6 +18,7 @@ module.exports = {
         for(var name in Game.rooms) {
             if(Game.rooms[name].memory.active) {
                 this.run_room(name);
+                console.log('harvester build state: '+utils.is_queued(name, 'harvester'));
             }
         }
         this.run_creeps();

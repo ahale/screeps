@@ -15,6 +15,18 @@ module.exports = {
 		}
 	},
 
+    is_queued: function(name, flavour) {
+        var res = 0;
+        var room_spawn = this.get_room_spawn(name);
+        if(room_spawn.spawning && Game.rooms[name].memory.building === flavour) { res = 1; }
+        for(var item in Game.rooms[name].memory.spawnqueue) {
+            if(Game.rooms[name].memory.spawnqueue.flavour === flavour) {
+                res += 1;
+            }
+        }
+        return res;
+    },
+
     get_path: function(from, to, name) {
         var path = Game.rooms[name].findPath(from, to, { ignoreCreeps: true });
         return path;
