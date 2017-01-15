@@ -28,9 +28,8 @@ module.exports = {
     run_room: function(name) {
         if(Game.rooms[name].memory.controller_level != Game.rooms[name].controller.level) {
             utils.controller_level_change(name);
-            creeputil.check_no_creeps(name);
-
         }
+        creeputil.check_no_creeps(name);
         factory.run(name);
         this.stupid_stuff_to_get_creeps()
     },
