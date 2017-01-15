@@ -25,7 +25,6 @@ module.exports = {
     },
 
     build: function(name, build_data) {
-        console.log('build()');
         var room_spawn = utils.get_room_spawn(name);
         if(room_spawn.spawning) { return false; }
         var generic = build_data['generic'];
