@@ -1,9 +1,9 @@
-var miner = require('role.miner');
-var builder = require('role.builder');
+// var miner = require('role.miner');
+// var builder = require('role.builder');
 // var repairer = require('role.repairer');
-var upgrader = require('role.upgrader');
-var harvester = require('role.harvester');
-var transporter = require('role.transporter');
+// var upgrader = require('role.upgrader');
+// var harvester = require('role.harvester');
+// var transporter = require('role.transporter');
 
 
 module.exports = {
@@ -15,12 +15,12 @@ module.exports = {
             return;
         }
 
-        if(creep.memory.flavour === "miner") { miner.run(creep); };
-        if(creep.memory.flavour === "builder") { builder.run(creep); };
+        // if(creep.memory.flavour === "miner") { miner.run(creep); };
+        // if(creep.memory.flavour === "builder") { builder.run(creep); };
         // if(creep.memory.flavour === "repairer") { repairer.run(creep); };
-        if(creep.memory.flavour === "upgrader") { upgrader.run(creep); };
-        if(creep.memory.flavour === "harvester") { harvester.run(creep); };
-        if(creep.memory.flavour === "transporter") { transporter.run(creep); };
+        // if(creep.memory.flavour === "upgrader") { upgrader.run(creep); };
+        // if(creep.memory.flavour === "harvester") { harvester.run(creep); };
+        // if(creep.memory.flavour === "transporter") { transporter.run(creep); };
     },
 
     memory_init: function(creep) {
