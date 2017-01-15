@@ -108,7 +108,6 @@ module.exports = {
             Game.rooms[name].memory.controller_level = Game.rooms[name].controller.level;
         }
 
-
         if(Game.rooms[name].memory.queues == undefined) {
             Game.rooms[name].memory.queues = {};
             Game.rooms[name].memory.queues['spawnqueue'] = [];
@@ -128,7 +127,6 @@ module.exports = {
             Game.rooms[name].memory.energy_sources_available = energy_sources.length;
         }
 
-        console.log('todo: room initialisation stuff');
         if(Game.rooms[name].memory.energy_sources_available > 0) {
             var room_source_data = [];
             var energy_sources = Game.rooms[name].find(FIND_SOURCES);
