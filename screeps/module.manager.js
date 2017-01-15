@@ -19,7 +19,9 @@ module.exports = {
         utils.clear_expired_creeps();
         for(var name in Game.rooms) {
             if(Game.rooms[name].memory.active) {
-                this.run_room(name);
+                if(Game.rooms[name].memory.controller_level > 1) {
+                    factory.run(name);
+                }
             }
         }
         this.run_creeps();
