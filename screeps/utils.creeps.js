@@ -24,9 +24,10 @@ module.exports = {
             if(flavour === 'repairer') {
                 part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']};
             }
-        } else {
-
         }
+        // else {
+        //
+        // }
         return part_info;
     },
 
