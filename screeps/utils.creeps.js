@@ -46,9 +46,6 @@ module.exports = {
         var add_parts = part_info['add'];
         var last_parts = false;
 
-        console.log(parts);
-        console.log(add_parts);
-
         for(i = 0; i < 10; i++) {
             var cost = 0;
             for(var n in parts.concat(add_parts)) {
@@ -77,13 +74,18 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
+        src = this.get_source(creep);
         if(creep.harvest(src) === ERR_NOT_IN_RANGE) {
             creep.moveTo(src);
             creep.memory.work.move += 1;
         } else {
             creep.memory.work.harvest += 1;
         }
+    },
+
+    get_source: function(creep) {
+        var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
+        return src;
     },
 
     filterConstructionSites(creep, targets) {

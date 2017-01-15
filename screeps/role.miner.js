@@ -1,24 +1,15 @@
 // Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'miner'})
 
+var creeputil = require('utils.creeps');
+
 module.exports = {
     run: function(creep) {
         if(!creep.memory.init) { this.memory_init(creep); }
-        if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
-        if(creep.room.memory.mode == "miner") { this.miner(creep); };
-        if(creep.room.memory.mode == "container") { this.container(creep); };
-        if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
-    },
-
-    harvest: function(creep) {
-    },
-
-    miner: function(creep) {
-    },
-
-    container: function(creep) {
-    },
-
-    delivery: function(creep) {
+        var src = creeputil.get_source(creep);
+        if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
+            creep.memory.work.move += 1;
+            creep.moveTo(src);
+        } else { creep.memory.work.work += 1; }
     },
 
     memory_init: function(creep) {
