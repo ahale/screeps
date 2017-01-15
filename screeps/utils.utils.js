@@ -74,8 +74,8 @@ module.exports = {
                 var n = 0;
                 while(res != 0 && n < 20) {
                     start_position.x += -2;
+                    res = Game.rooms[name].createConstructionSite((start_position.x + 1), start_position.y, STRUCTURE_ROAD);
                     res = Game.rooms[name].createConstructionSite(start_position.x, start_position.y, STRUCTURE_EXTENSION);
-                    // console.log(start_position.x+', '+start_position.y);
                     n++;
                 }
             }
