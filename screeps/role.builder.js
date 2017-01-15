@@ -7,13 +7,15 @@ var creeputil = require('utils.creeps');
 module.exports = {
     run: function(creep) {
         if(!creep.memory.init) { this.memory_init(creep); }
-        if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
         if(creep.room.memory.mode == "miner") { this.miner(creep); };
         if(creep.room.memory.mode == "container") { this.container(creep); };
         if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
     },
 
     harvest: function(creep) {
+    },
+
+    miner: function(creep) {
         if(!creep.memory.building) {
             creep.memory.building = false;
         }
@@ -40,9 +42,6 @@ module.exports = {
         else {
             if(creep.carry.energy < creep.carryCapacity) { creeputil.harvest(creep); }
         }
-    },
-
-    miner: function(creep) {
     },
 
     container: function(creep) {

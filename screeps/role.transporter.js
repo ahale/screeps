@@ -8,12 +8,6 @@ module.exports = {
         if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
     },
 
-    harvest: function(creep) {
-    },
-
-    miner: function(creep) {
-    },
-
     container: function(creep) {
     },
 
