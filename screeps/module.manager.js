@@ -1,7 +1,7 @@
 
 var mem = require('utils.mem');
 var utils = require('utils.utils');
-var factory = require('module.factory');
+// var factory = require('module.factory');
 // var basecreep = require('role.base');
 
 module.exports = {
@@ -30,8 +30,8 @@ module.exports = {
             // make this set flag to wait for full energy then test all builds prime cache (or cron?)
             utils.controller_level_change(name);
         }
-        factory.run(name);
-        this.stupid_stuff_to_get_creeps()
+        // factory.run(name);
+        // this.stupid_stuff_to_get_creeps()
     },
 
     run_creeps: function() {
