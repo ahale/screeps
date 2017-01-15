@@ -1,7 +1,8 @@
 
 var utils = require('utils.utils');
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "builder", 'build_type': 'structure'});
-// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {"flavour": "builder", 'build_type': 'road'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'structure'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'road'});
+// Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'repairer'});
 
 module.exports = {
     loadCreepCounts: function() {
@@ -11,7 +12,7 @@ module.exports = {
     get_part_info: function(flavour, name) {
         if(Game.rooms[name].memory.mode == 'harvest') {
             var part_info = false;
-            if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
+            if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder' || flavour == 'repairer' ) {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
             if(flavour === 'miner') {
@@ -38,6 +39,9 @@ module.exports = {
         var parts = part_info['base'];
         var add_parts = part_info['add'];
         var last_parts = false;
+
+        console.log(parts);
+        console.log(add_parts);
 
         for (i = 0; i < 10; i++) {
             var cost = 0;
