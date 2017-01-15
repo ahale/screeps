@@ -1,6 +1,6 @@
 // Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'harvester', 'generic': true})
 
-var creeputil = require('utils.creeps');
+// var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(creep) {
@@ -13,7 +13,7 @@ module.exports = {
 
     harvest: function(creep) {
         if(creep.carry.energy < creep.carryCapacity) {
-            creeputil.harvest(creep);
+            // creeputil.harvest(creep);
         }
         else {
             var targets = creep.room.find(FIND_STRUCTURES, {
