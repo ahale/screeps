@@ -1,6 +1,6 @@
 // Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'harvester', 'generic': true})
 
-// var creeputil = require('utils.creeps');
+var creeputil = require('utils.creeps');
 
 module.exports = {
     run: function(creep) {
