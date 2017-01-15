@@ -82,7 +82,7 @@ module.exports = {
             console.log('move');
         } else {
             creep.memory.work.harvest += 1;
-            console.log('move');
+            console.log('harvest');
         }
     },
 
