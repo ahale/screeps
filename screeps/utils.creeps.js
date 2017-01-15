@@ -68,9 +68,9 @@ module.exports = {
             var flavour = flavours[n];
             // console.log(flavour);
             var count = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour));
-            console.log(count.length);
-            console.log(utils.is_queued(name, flavour));
-            if(!count.length && utils.is_queued(name, flavour)) {
+            // console.log(count.length);
+            // console.log(utils.is_queued(name, flavour));
+            if(!count.length && !utils.is_queued(name, flavour)) {
                 Game.rooms[name].memory.queues.spawnqueue.push({'flavour': flavour, 'generic': true});
             }
         }
