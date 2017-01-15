@@ -11,13 +11,13 @@ module.exports = {
     get_part_info: function(flavour, name) {
         if(Game.rooms[name].memory.mode == 'harvest') {
             var part_info = false;
-            if(flavour == 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
+            if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
-            if(flavour == 'miner') {
+            if(flavour === 'miner') {
                 part_info = {'base': ['move', 'work', 'work'], 'add': ['work']}
             }
-            if(flavour == 'transporter') {
+            if(flavour === 'transporter') {
                 part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']}
             }
         } else {
@@ -40,13 +40,13 @@ module.exports = {
         var last_parts = false;
 
         for (i = 0; i < 10; i++) {
-            var res = room_spawn.canCreateCreep(parts.concat(add_parts));
-            if(res == 0) {
+            var cost = 0;
+            for(var n in parts.concat(add_parts)) {
+                cost += BODYPART_COST[parts.concat(add_parts)[n]];
+            }
+            if(cost <= room_energy) {
                 parts = parts.concat(add_parts);
-            }
-            else {
-                break;
-            }
+            } else { break; }
         }
         Memory.parts[flavour][room_energy] = parts;
         return parts;
@@ -54,7 +54,7 @@ module.exports = {
 
     harvest: function(creep) {
         var src = Game.getObjectById(creep.room.memory.sources[creep.memory.src].id);
-        if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
+        if(creep.harvest(src) === ERR_NOT_IN_RANGE) {
             creep.moveTo(src);
             creep.memory.work.move += 1;
         } else {
