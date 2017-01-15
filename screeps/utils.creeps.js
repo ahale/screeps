@@ -13,21 +13,18 @@ module.exports = {
         if(Game.rooms[name].memory.mode == 'harvest') {
             var part_info = false;
             if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
-                part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']};
+                part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
             }
             if(flavour === 'miner') {
-                part_info = {'base': ['move', 'work', 'work'], 'add': ['work']};
+                part_info = {'base': ['move', 'work', 'work'], 'add': ['work']}
             }
             if(flavour === 'transporter') {
-                part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']};
+                part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']}
             }
             if(flavour === 'repairer') {
-                part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']};
+                part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']}
             }
         }
-        // else {
-        //
-        // }
         return part_info;
     },
 
