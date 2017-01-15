@@ -12,7 +12,7 @@ module.exports = {
     get_part_info: function(flavour, name) {
         if(Game.rooms[name].memory.mode == 'harvest') {
             var part_info = false;
-            if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder' || flavour == 'repairer' ) {
+            if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']};
             }
             if(flavour === 'miner') {
