@@ -21,9 +21,9 @@ module.exports = {
             if(flavour === 'transporter') {
                 part_info = {'base': ['move', 'carry'], 'add': ['move', 'carry']}
             }
-            // if(flavour === 'repairer') {
-            //     part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']}
-            // }
+            if(flavour === 'repairer') {
+                part_info = {'base': ['move', 'carry' 'work'], 'add': ['move']}
+            }
         }
         return part_info;
     },
