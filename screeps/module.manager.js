@@ -29,6 +29,7 @@ module.exports = {
     },
 
     run_room: function(name) {
+        console.log('run_room('+name+')');
         if(Game.rooms[name].memory.controller_level != Game.rooms[name].controller.level) {
             utils.controller_level_change(name);
         }
