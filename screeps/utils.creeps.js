@@ -13,11 +13,11 @@ module.exports = {
         console.log('check_creep_counts('+name+')');
         // room_creeps = _.filter(Game.creeps, (creep) => creep.memory.room == name);
         // countdata = Memory. Game.rooms[name].memory.mode
-        transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        builders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        miners = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var builders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var miners = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
 
     },
 
