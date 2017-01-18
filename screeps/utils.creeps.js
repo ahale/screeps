@@ -10,8 +10,9 @@ module.exports = {
     },
 
     check_creep_counts: function(name) {
+        console.log('check_creep_counts('+name+')');
         // room_creeps = _.filter(Game.creeps, (creep) => creep.memory.room == name);
-        countdata = Memory. Game.rooms[name].memory.mode
+        // countdata = Memory. Game.rooms[name].memory.mode
         transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
