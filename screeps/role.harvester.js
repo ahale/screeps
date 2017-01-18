@@ -5,15 +5,13 @@ var creeputil = require('utils.creeps');
 module.exports = {
     run: function(creep) {
         if(!creep.memory.init) { this.memory_init(creep); }
-        if(creep.memory.generic) {
+        if(creep.memory.generic || creep.room.memory.mode != "delivery") {
             this.harvest(creep);
             return;
         }
         if(creep.room.memory.mode == "delivery") {
             this.delivery(creep);
         }
-        else{
-            this.harvest(creep);
     },
 
     harvest: function(creep) {
