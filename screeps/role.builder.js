@@ -1,5 +1,5 @@
-// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'road'})
-// Game.rooms['sim'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'structure'})
+// Game.rooms['W51S81'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'road'})
+// Game.rooms['W51S81'].memory.queues.spawnqueue.push({'flavour': 'builder', 'generic': true, 'build_type': 'structure'})
 
 
 var creeputil = require('utils.creeps');
@@ -10,9 +10,6 @@ module.exports = {
         if(creep.room.memory.mode == "miner") { this.miner(creep); };
         if(creep.room.memory.mode == "container") { this.container(creep); };
         if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
-    },
-
-    harvest: function(creep) {
     },
 
     miner: function(creep) {

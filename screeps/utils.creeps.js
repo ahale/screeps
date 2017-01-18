@@ -9,6 +9,17 @@ module.exports = {
         console.log('todo: write load creep counts into memory');
     },
 
+    check_creep_counts: function(name) {
+        // room_creeps = _.filter(Game.creeps, (creep) => creep.memory.room == name);
+        countdata = Memory. Game.rooms[name].memory.mode
+        transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        builders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        miners = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+
+    },
+
     get_part_info: function(flavour, name, generic) {
         if(generic) {
             return ['work', 'carry', 'move'];
@@ -71,12 +82,27 @@ module.exports = {
     },
 
     harvest: function(creep) {
-        var src = this.get_source(creep);
-        if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(src);
-            creep.memory.work.move += 1;
-        } else {
-            creep.memory.work.harvest += 1;
+        if(creep.room.memory.mode == "harvest") {
+            var src = this.get_source(creep);
+            if(creep.harvest(src) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(src);
+                creep.memory.work.move += 1;
+            } else {
+                creep.memory.work.harvest += 1;
+            }
+        }
+        if(creep.room.memory.mode == "miner") {
+            var src = creep.room.find(FIND_DROPPED_RESOURCES);
+            var sorted_sources = sources.sort(function(a, b){return a.amount-b.amount}).reverse();
+            if(creep.pickup(sorted_sources[0]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sorted_sources[0]);
+                creep.memory.work.move += 1;
+            } else {
+                creep.memory.work.harvest += 1;
+            }
+        }
+        if(creep.room.memory.mode == "container") {
+
         }
     },
 

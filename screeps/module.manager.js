@@ -33,6 +33,7 @@ module.exports = {
             utils.controller_level_change(name);
         }
         creeputil.check_no_creeps(name);
+        creeputil.check_creep_counts(name);
         factory.run(name);
     },
 

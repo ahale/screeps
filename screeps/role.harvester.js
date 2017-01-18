@@ -9,10 +9,11 @@ module.exports = {
             this.harvest(creep);
             return;
         }
-        if(creep.room.memory.mode == "harvest") { this.harvest(creep); };
-        if(creep.room.memory.mode == "miner") { this.miner(creep); };
-        if(creep.room.memory.mode == "container") { this.container(creep); };
-        if(creep.room.memory.mode == "delivery") { this.delivery(creep); };
+        if(creep.room.memory.mode == "delivery") {
+            this.delivery(creep);
+        }
+        else{
+            this.harvest(creep);
     },
 
     harvest: function(creep) {
