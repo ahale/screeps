@@ -26,11 +26,28 @@ module.exports = {
         }
 
         var creep_count_data = Memory.creep_counts[blah];
-        for(var n in creep_count_data) {
-            var flavour = creep_count_data[n];
-            console.log('flavour: '+flavour);
-            // var current_count =  _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour && creep.memory.room == name && !creep.memory.generic));
-
+        for(var flavour in creep_count_data) {
+            var count_data = creep_count_data[flavour];
+            var min = creep_count_data[flavour].min;
+            var max = creep_count_data[flavour].max;
+            if(flavour === 'miner') {
+                for(var source in Memory.rooms[name].sources) {
+                    if(Memory.rooms[name].sources[source].active) {
+                        var assigned_miners = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour && creep.memory.room == name && creep.memory.src == source));
+                        if(!utils.is_queued(name, flavour) && assigned_miners.length < max && assigned_miners.length < Memory.rooms[name].sources[source].accesspoints) {
+                            var build_data = {'flavour': flavour, 'src': source};
+                            this.enqueue(name, build_data);
+                        }
+                    }
+                }
+            }
+            else {
+                var current_count =  _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour && creep.memory.room == name && !creep.memory.generic)).length;
+                if(!utils.is_queued(name, flavour) && current_count < max) {
+                    var build_data = {'flavour': flavour};
+                    this.enqueue(name, build_data);
+                }
+            }
         }
     },
 
@@ -47,7 +64,7 @@ module.exports = {
             return ['work', 'carry', 'move'];
         }
 
-        if(Game.rooms[name].memory.mode == 'harvest') {
+        if(Game.rooms[name].memory.mode == 'harvest' || Game.rooms[name].memory.mode == 'miner' || Game.rooms[name].memory.mode == 'container') {
             var part_info = false;
             if(flavour === 'harvester' || flavour == 'upgrader' || flavour == 'builder') {
                 part_info = {'base': ['work', 'carry', 'move'], 'add': ['work', 'carry', 'move']}
@@ -98,7 +115,6 @@ module.exports = {
             var flavour = flavours[n];
             var count = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour));
             if(!count.length && !utils.is_queued(name, flavour)) {
-                build_data = {'flavour': flavour, 'generic': true};
                 Game.rooms[name].memory.queues.spawnqueue.push({'flavour': flavour, 'generic': true});
             }
         }
@@ -115,7 +131,7 @@ module.exports = {
             }
         }
         if(creep.room.memory.mode == "miner") {
-            var src = creep.room.find(FIND_DROPPED_RESOURCES);
+            var sources = creep.room.find(FIND_DROPPED_RESOURCES);
             var sorted_sources = sources.sort(function(a, b){return a.amount-b.amount}).reverse();
             if(creep.pickup(sorted_sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sorted_sources[0]);
@@ -147,7 +163,7 @@ module.exports = {
 
     enqueue: function(name, build_data) {
         var added_to_queue = false;
-        if(!utils.is_queued(name, flavour)) {
+        if(!utils.is_queued(name, build_data.flavour)) {
             Game.rooms[name].memory.queues.spawnqueue.push(build_data);
             added_to_queue = true;
         }
