@@ -34,4 +34,12 @@ module.exports = {
         return res;
     },
 
+    enqueue: function(name, build_data) {
+        var added_to_queue = false;
+        if(!utils.is_queued(name, flavour)) {
+            Game.rooms[name].memory.queues.spawnqueue.push(build_data);
+            added_to_queue = true;
+        }
+        return added_to_queue;
+    },
 }

@@ -1,5 +1,6 @@
 
 var utils = require('utils.utils');
+var factory = require('module.factory');
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'structure'});
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'road'});
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'repairer'});
@@ -19,11 +20,18 @@ module.exports = {
     },
 
     calculate_default_creep_count: function(name) {
-        var transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        var builders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
-        var miners = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+        var blah = 'default'
+        if(Game.rooms[name].memory.mode === 'harvest') {
+            return;
+        }
+
+        var creep_count_data = Memory.creep_counts[blah];
+        for(var n in creep_count_data) {
+            var flavour = creep_count_data[n];
+            console.log('flavour: '+flavour);
+            // var current_count =  _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour && creep.memory.room == name && !creep.memory.generic));
+
+        }
     },
 
     calculate_delivery_creep_count: function(name) {
@@ -90,6 +98,7 @@ module.exports = {
             var flavour = flavours[n];
             var count = _.filter(Game.creeps, (creep) => (creep.memory.flavour == flavour));
             if(!count.length && !utils.is_queued(name, flavour)) {
+                build_data = {'flavour': flavour, 'generic': true};
                 Game.rooms[name].memory.queues.spawnqueue.push({'flavour': flavour, 'generic': true});
             }
         }
