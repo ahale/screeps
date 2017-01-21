@@ -9,14 +9,14 @@ module.exports = {
     check_creep_counts: function(name) {
         this.check_no_creeps(name);
         if(Game.rooms[name].memory.mode == 'delivery') {
-            this.calculate_delivery_creep_count();
+            this.calculate_delivery_creep_count(name);
             return;
         }
         if(Game.rooms[name].memory.mode == 'container') {
-            this.calculate_container_creep_count();
+            this.calculate_container_creep_count(name);
             return;
         }
-        this.calculate_default_creep_count();
+        this.calculate_default_creep_count(name);
     },
 
     calculate_default_creep_count: function(name) {
