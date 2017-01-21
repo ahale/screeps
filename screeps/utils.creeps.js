@@ -1,6 +1,6 @@
 
 var utils = require('utils.utils');
-var factory = require('module.factory');
+// var factory = require('module.factory');
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'structure'});
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'builder', 'build_type': 'road'});
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'repairer'});
@@ -143,5 +143,14 @@ module.exports = {
             }
         }
         return targets;
+    },
+
+    enqueue: function(name, build_data) {
+        var added_to_queue = false;
+        if(!utils.is_queued(name, flavour)) {
+            Game.rooms[name].memory.queues.spawnqueue.push(build_data);
+            added_to_queue = true;
+        }
+        return added_to_queue;
     },
 }
