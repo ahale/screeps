@@ -9,7 +9,7 @@ module.exports = {
         }
 
         if(Memory.creep_counts == undefined) {
-            Memory.parts = this.loadCreepCounts();
+            Memory.creep_counts = this.loadCreepCounts();
         }
 
         for(var name in Game.rooms) {
