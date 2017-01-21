@@ -8,8 +8,10 @@ module.exports = {
             Memory.parts = {};
         }
 
-        this.loadCreepCounts();
-        this.loadRecipes();
+        if(Memory.creep_counts == undefined) {
+            Memory.parts = this.loadCreepCounts();
+        }
+
         for(var name in Game.rooms) {
             if(!Game.rooms[name].memory.roominit) { utils.roominit(name); }
             Memory.rooms.homeroom = name;
@@ -20,19 +22,27 @@ module.exports = {
         Memory.mainManagerInit = true;
     },
 
-    roomMemoryInit: function(name) {
-        console.log('todo: write roomMemoryInit function');
-    },
-
     loadCreepCounts: function() {
-        console.log('todo: write load creep counts into memory');
-    },
-
-    loadRecipes: function() {
-        console.log('todo: write recipedata into memory');
-        // move this into memory stuff
-        // if(creep.room.memory.parts.harvester == undefined) {
-        //     Game.rooms[name].memory.parts.harvester = {};
-        // }
+        var creep_counts = {
+            "default": {
+                "harvester": {"min": 0, "max": 3, "current": 0},
+                "upgrader": {"min": 0, "max": 3, "current": 0};
+                "builder": {"min": 0, "max": 6, "current": 0};
+                "miner": {"min": 0, "max": 10, "current": 0};
+            },
+            "container": {
+                "harvester": {"min": 0, "max": 10, "current": 0},
+                "upgrader": {"min": 0, "max": 10, "current": 0};
+                "builder": {"min": 0, "max": 10, "current": 0};
+                "miner": {"min": 0, "max": 10, "current": 0};
+            },
+            "delivery": {
+                "harvester": {"min": 0, "max": 1, "current": 0},
+                "upgrader": {"min": 0, "max": 1, "current": 0};
+                "builder": {"min": 0, "max": 1, "current": 0};
+                "miner": {"min": 0, "max": 1, "current": 0};
+            },
+        }
+        return creep_counts;
     },
 }

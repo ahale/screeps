@@ -142,7 +142,7 @@ module.exports = {
                 data.accesspoints = nearby;
                 room_source_data.push(data);
             }
-            Memory.rooms[name].sources = room_source_data;
+            Game.rooms[name].memory.sources = room_source_data;
         }
         else {
             Game.rooms[name].memory.sources = [];

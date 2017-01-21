@@ -5,10 +5,6 @@ var utils = require('utils.utils');
 // Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {'flavour': 'repairer'});
 
 module.exports = {
-    loadCreepCounts: function() {
-        console.log('todo: write load creep counts into memory');
-    },
-
     check_creep_counts: function(name) {
         // console.log('check_creep_counts('+name+')');
         this.check_no_creeps(name);
