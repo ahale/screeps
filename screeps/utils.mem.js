@@ -26,21 +26,21 @@ module.exports = {
         var creep_counts = {
             "default": {
                 "harvester": {"min": 0, "max": 3, "current": 0},
-                "upgrader": {"min": 0, "max": 3, "current": 0};
-                "builder": {"min": 0, "max": 6, "current": 0};
-                "miner": {"min": 0, "max": 10, "current": 0};
+                "upgrader": {"min": 0, "max": 3, "current": 0},
+                "builder": {"min": 0, "max": 6, "current": 0},
+                "miner": {"min": 0, "max": 10, "current": 0},
             },
             "container": {
                 "harvester": {"min": 0, "max": 10, "current": 0},
-                "upgrader": {"min": 0, "max": 10, "current": 0};
-                "builder": {"min": 0, "max": 10, "current": 0};
-                "miner": {"min": 0, "max": 10, "current": 0};
+                "upgrader": {"min": 0, "max": 10, "current": 0},
+                "builder": {"min": 0, "max": 10, "current": 0},
+                "miner": {"min": 0, "max": 10, "current": 0},
             },
             "delivery": {
                 "harvester": {"min": 0, "max": 1, "current": 0},
-                "upgrader": {"min": 0, "max": 1, "current": 0};
-                "builder": {"min": 0, "max": 1, "current": 0};
-                "miner": {"min": 0, "max": 1, "current": 0};
+                "upgrader": {"min": 0, "max": 1, "current": 0},
+                "builder": {"min": 0, "max": 1, "current": 0},
+                "miner": {"min": 0, "max": 1, "current": 0},
             },
         }
         return creep_counts;
