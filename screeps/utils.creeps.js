@@ -6,13 +6,31 @@ var utils = require('utils.utils');
 
 module.exports = {
     check_creep_counts: function(name) {
-        // console.log('check_creep_counts('+name+')');
         this.check_no_creeps(name);
+        if(Game.rooms[name].memory.mode == 'delivery') {
+            this.calculate_delivery_creep_count();
+            return;
+        }
+        if(Game.rooms[name].memory.mode == 'container') {
+            this.calculate_container_creep_count();
+            return;
+        }
+        this.calculate_default_creep_count();
+    },
+
+    calculate_default_creep_count: function(name) {
         var transporters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         var harvesters = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         var upgraders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         var builders = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
         var miners = _.filter(Game.creeps, (creep) => (creep.memory.role == name && creep.memory.room == name && !creep.memory.generic));
+    },
+
+    calculate_delivery_creep_count: function(name) {
+
+    },
+
+    calculate_container_creep_count: function(name) {
 
     },
 

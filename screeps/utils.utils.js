@@ -157,6 +157,7 @@ module.exports = {
         this.buildRoads(Game.rooms[name].controller.pos, container_pos, name);
         this.buildRoads(container_pos, Game.spawns.Spawn1.pos, name);
         this.buildRoads(container_pos, source.pos, name);
+        this.buildRoads(source.pos, Game.spawns.Spawn1.pos, name);
         Game.rooms[name].memory.roominit = true;
     },
 
