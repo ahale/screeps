@@ -31,16 +31,20 @@ module.exports = {
                 "miner": {"min": 0, "max": 10, "current": 0},
             },
             "container": {
+                "transporter": {"min": 0, "max": 10, "current": 0},
                 "harvester": {"min": 0, "max": 10, "current": 0},
+                "repairer": {"min": 0, "max": 10, "current": 0},
                 "upgrader": {"min": 0, "max": 10, "current": 0},
                 "builder": {"min": 0, "max": 10, "current": 0},
                 "miner": {"min": 0, "max": 10, "current": 0},
             },
             "delivery": {
-                "harvester": {"min": 0, "max": 1, "current": 0},
-                "upgrader": {"min": 0, "max": 1, "current": 0},
-                "builder": {"min": 0, "max": 1, "current": 0},
-                "miner": {"min": 0, "max": 1, "current": 0},
+                "transporter": {"min": 0, "max": 10, "current": 0},
+                "harvester": {"min": 0, "max": 10, "current": 0},
+                "repairer": {"min": 0, "max": 10, "current": 0},
+                "upgrader": {"min": 0, "max": 10, "current": 0},
+                "builder": {"min": 0, "max": 10, "current": 0},
+                "miner": {"min": 0, "max": 10, "current": 0},
             },
         }
         return creep_counts;
